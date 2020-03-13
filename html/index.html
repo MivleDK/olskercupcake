@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Olser Cupcakes</title>
+  </head>
+  <body>
+    <!--
+    ########################
+        NAVBAR STARTER
+    ########################
+    -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="brand-bar">
+      <div class="container" id="navbar-top">
+        <img  href="index.html" src="img/logo.png" height="150px" />
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="menu">
+      <a class="navbar-brand" href="index.html">Olsker Cupcakes</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<!--
+########################
+    NAVBAR SLUTTER
+########################
+-->
+
+<div class="container" id="main-container">
+
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h1 class="display-1">Velkommen</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h1 class="display-4" id="tagline">Til Olsker Cupcakes</h1>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-lg-6 text-center">
+    <h1 class="h2">Log på</h1>
+    <p>Hvis du er eksisterende bruger</p>
+    <br />
+    <form action="/frontcontroller" method="Post">
+      <div class="form-group">
+
+<!-- HUSK HIDDEN INPUTS? --><input type="hidden" name="uname" value="HEJ">
+        <input type="email" class="form-control" id="InputEmail1" placeholder="E-mail">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password1" placeholder="Adgangskode">
+      </div>
+      <button type="submit" class="btn btn-success">Log på</button>
+    </form>
+
+  </div>
+  <div class="col-lg-6 text-center">
+    <h1 class="h2">Ny bruger</h1>
+    <p>Hvis du ikke har handlet hos os før</p>
+  <br />
+
+  <form action="/frontcontroller" method="Post">
+    <div class="form-group">
+
+<!-- HUSK HIDDEN INPUTS? --><input type="hidden" name="uname" value="HEJ">
+      <input type="email" class="form-control" id="OpretInputEmail1" placeholder="E-mail">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="Oprettelefon" placeholder="Telefonnummer">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="Opretpassword1" placeholder="Adgangskode">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="Opretpassword1" placeholder="Gentag adgangskode">
+    </div>
+    <button type="submit" class="btn btn-success">Opret bruger</button>
+  </form>
+<br />
+  <div class="alert alert-warning" role="alert">
+Bemærk:<br />Du skal betale fysisk i butikken
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- MAIN CONTAINER DIV -->
+</div>
+<footer class="page-footer">
+  <div class="container-fluid text-center">
+    <h3>Datamatiker 2. semester hold E</h3>
+    <p>Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach<br />Marts 2020</p>
+  </div>
+</footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

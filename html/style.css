@@ -1,0 +1,35 @@
+hr{
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+#brand-bar{
+  /* Gør baggrundsbilledet i headeren mørkere med en gradient */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("img/bunting-flag.png");
+}
+
+#navbar-top{
+  margin-left: 0;
+}
+
+#main-container{
+  padding-top: 210px;
+}
+
+#menu{
+  margin-top: 160px;
+}
+
+#tagline{
+  margin-top: 0.5em;
+  font-size: 3em;
+}
+
+.page-footer{
+  margin-top: 3em;
+  padding-top: 1em;
+  line-height: 1.5em;
+  background-color: #a4a4a4;
+  color: white;
+  padding-bottom: 1em;
+}
