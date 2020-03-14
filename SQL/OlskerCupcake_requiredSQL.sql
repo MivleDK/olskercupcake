@@ -1,30 +1,33 @@
 -- Required SQL for OlskerCupcakeDB
-USE olskercupcake;
+USE olskercupcakedb;
 
 -- -------------------------------------------------------------
 -- Insert static records to tables in `users`, `products`
 -- -------------------------------------------------------------
 LOCK TABLES users WRITE;
-INSERT INTO users (email,password,phone,kontobeloeb,role) VALUES ('admin@admin.com','1234','11111111','0','admin'),
-																('jens@somewhere.com','1111','22222222','1000','customer'),
-																('ken@somewhere.com','2222','87654321','1000','customer'),
-																('robin@somewhere.com','3333','12121212','1000','customer');
+INSERT INTO users (email,password,phone,role) VALUES ('admin@admin.com','1234','11111111','admin'),
+													 ('jens@somewhere.com','1111','22222222','customer'),
+													 ('ken@somewhere.com','2222','87654321','customer'),
+													 ('robin@somewhere.com','3333','12121212','customer');
 UNLOCK TABLES;
 
-LOCK TABLES products WRITE;
-INSERT INTO products (name,price,category) VALUES ('Chocolate','5','Bottom'),
-												  ('Vanilla','5','Bottom'),
-												  ('Nutmeg','5','Bottom'),
-												  ('Pistacio','6','Bottom'),
-                                                  ('Almond','7','Bottom'),
-                                                  ('Chocolate','5','Topping'),
-                                                  ('Blueberry','5','Topping'),
-                                                  ('Rasberry','5','Topping'),
-                                                  ('Crispy','6','Topping'),
-                                                  ('Strawberry','6','Topping'),
-                                                  ('Rum/Raisin','7','Topping'),
-                                                  ('Orange','8','Topping'),
-                                                  ('Lemon','8','Topping'),
-                                                  ('Blue cheese','9','Topping');
+LOCK TABLES topping WRITE;
+INSERT INTO topping (name,price) VALUES ('Chocolate','5'),
+										('Blueberry','5'),
+										('Rasberry','5'),
+										('Crispy','6'),
+										('Strawberry','6'),
+										('Rum/Raisin','7'),
+										('Orange','8'),
+										('Lemon','8'),
+										('Blue cheese','9');
                                                   
+UNLOCK TABLES;
+
+LOCK TABLES bottom WRITE;
+INSERT INTO bottom (name,price) VALUES ('Chocolate','5'),
+									   ('Vanilla','5'),
+									   ('Nutmeg','5'),
+									   ('Pistacio','6'),
+									   ('Almond','7');
 UNLOCK TABLES;

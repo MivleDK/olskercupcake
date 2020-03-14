@@ -1,42 +1,25 @@
 -- Dummy records for OlskerCupkakeDB
-USE olskercupcake;
+USE olskercupcakedb;
 
 -- --------------------------------------------------------------------------
--- Insert dummy records in tables `usersorders`, `orders`, `ordersorderline` and `orderline`
+-- Insert dummy records in tables `orders` and `orderline`
 -- --------------------------------------------------------------------------
 
 
 LOCK TABLES orders WRITE;
-INSERT INTO orders (dato,status) VALUES ('2020-02-28 20:59:59','Bestilt'),
-										('2020-03-02 16:54:27','Bestil'),
-										('2020-03-03 13:14:51','Behandler');
-UNLOCK TABLES;
-
-LOCK TABLES usersorders WRITE;
-INSERT INTO usersorders (usersID,ordersID) VALUES ('2','1'),
-												  ('3','2'),
-                                                  ('4','3');
+INSERT INTO orders (users_id,order_date,status) VALUES ('2','2020-02-28 20:59:59','Afsluttet'),
+												('3','2020-03-02 16:54:27','Bestilt'),
+												('4','2020-03-03 13:14:51','Afsluttet');
 UNLOCK TABLES;
 
 LOCK TABLES orderline WRITE;
-INSERT INTO orderline (antal,top,bund,totalprice) VALUES ('2','Chocolate','Blueberry','20'),
-														 ('3','Vanilla','Crispy','33'),
-														 ('1','Pistacio','Chocolate','11'),
-														 ('5','Almond','Rasberry','60'),
-														 ('4','Nutmeg','Strawberry','44'),
-														 ('2','Vanilla','Chocolate','20'),
-														 ('6','Nutmeg','Orange','78'),
-														 ('4','Almond','Lemon','60');
+INSERT INTO orderline (orders_id,quantity,sum,topping_id,bottom_id) VALUES ('1','2','20','1','2'),
+																		   ('1','3','33','2','4'),
+                                                                           ('2','4','44','4','3'),
+                                                                           ('2','2','22','5','1'),
+                                                                           ('2','1','16','9','5'),
+                                                                           ('3','6','66','4','3'),
+                                                                           ('3','12','144','6','1'),
+                                                                           ('3','3','39','7','2');
 UNLOCK TABLES;
-
-LOCK TABLES ordersorderline WRITE;
-INSERT INTO ordersorderline (ordersID,orderlineID) VALUES ('1','1'),
-														  ('1','2'),
-														  ('1','3'),
-														  ('2','4'),
-														  ('2','5'),
-														  ('3','6'),
-														  ('3','7'),
-														  ('3','8');
-UNLOCK TABLES;
-
+                                                                           

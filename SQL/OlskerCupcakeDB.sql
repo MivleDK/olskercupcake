@@ -1,97 +1,120 @@
--- -----------------------------------------------------
--- Schema OlskerCupcake
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `OlskerCupcake`;
+-- MySQL for OlskerCupcakeDB
 
--- -----------------------------------------------------
--- Schema OlskerCupcake
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `OlskerCupcake` DEFAULT CHARACTER SET utf8;
-USE `OlskerCupcake`;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
 
 -- -----------------------------------------------------
--- Table `users`
+-- Schema olskercupcakedb
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE `users` (
-  `usersID` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(90) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `phone` int(8) NOT NULL,
-  `kontobeloeb` decimal(10,2) NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'customer',
-  PRIMARY KEY (`usersID`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB;
+DROP SCHEMA IF EXISTS `olskercupcakedb`;
+-- -----------------------------------------------------
+-- Schema olskercupcakedb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `olskercupcakedb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `olskercupcakedb` ;
 
 -- -----------------------------------------------------
--- Table `orders`
+-- Table `olskercupcakedb`.`bottom`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS orders;
+CREATE TABLE IF NOT EXISTS `olskercupcakedb`.`bottom` (
+  `bottom_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`bottom_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `orders` (
-	`ordersID` int NOT NULL AUTO_INCREMENT,
-    `dato` datetime NOT NULL,
-    `status` varchar(45) NOT NULL,
-    PRIMARY KEY (`ordersID`)
-) ENGINE=InnoDB;
-
--- -----------------------------------------------------
--- Table `usersOrders`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS usersOrders;
-
-CREATE TABLE `usersOrders` (
-	`usersOrdersID` int NOT NULL AUTO_INCREMENT,
-	`usersID` int NOT NULL,
-    `ordersID` int NOT NULL,
-    PRIMARY KEY (`usersOrdersID`, `usersID`, `ordersID`),
-    FOREIGN KEY (`usersID`) REFERENCES users(`usersID`),
-    FOREIGN KEY (`ordersID`) REFERENCES orders(`ordersID`)
-) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
--- Table `orderline`
+-- Table `olskercupcakedb`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS orderline;
+CREATE TABLE IF NOT EXISTS `olskercupcakedb`.`users` (
+  `users_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(90) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `phone` INT(11) NOT NULL,
+  `credit` DECIMAL(10,2) NOT NULL DEFAULT '500.00',
+  `role` VARCHAR(20) NOT NULL DEFAULT 'customer',
+  PRIMARY KEY (`users_id`),
+  UNIQUE KEY `email_UNIQUE` (`email`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `orderline` (
-	`orderlineID` int NOT NULL AUTO_INCREMENT,
-    `antal` int NOT NULL,
-    `top` varchar(45) NOT NULL,
-    `bund` varchar(45) NOT NULL,
-    `totalprice` decimal(10,2) NOT NULL,
-    PRIMARY KEY (`orderlineID`)
-) ENGINE=InnoDB;
-
--- -----------------------------------------------------
--- Table `OrdersOrderline`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS OrdersOrderline;
-
-CREATE TABLE `OrdersOrderline` (
-	`OrdersOrderlineID` int NOT NULL AUTO_INCREMENT,
-    `ordersID` int NOT NULL,
-    `orderlineID` int NOT NULL,
-    PRIMARY KEY (`OrdersOrderlineID`, `ordersID`, `orderlineID`),
-    FOREIGN KEY (`ordersID`) REFERENCES orders(`ordersID`),
-    FOREIGN KEY (`orderlineID`) REFERENCES orderline(`orderlineID`)
-) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
--- Table `products`
+-- Table `olskercupcakedb`.`order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS products;
+CREATE TABLE IF NOT EXISTS `olskercupcakedb`.`orders` (
+  `orders_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `users_id` INT(11) NOT NULL,
+  `order_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` VARCHAR(45) NOT NULL DEFAULT 'Bestilt',
+  PRIMARY KEY (`orders_id`),
+  INDEX `fk_users_orders_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_users_order`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `olskercupcakedb`.`users` (`users_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
-CREATE TABLE `products` (
-	`productsID` int NOT NULL AUTO_INCREMENT,
-    `name` varchar(45) NOT NULL,
-    `price` decimal(10,2) NOT NULL,
-    `category` varchar(45) NOT NULL,
-    PRIMARY KEY (`productsID`)
-) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Table `olskercupcakedb`.`topping`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `olskercupcakedb`.`topping` (
+  `topping_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`topping_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
+-- -----------------------------------------------------
+-- Table `olskercupcakedb`.`orderline`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `olskercupcakedb`.`orderline` (
+  `orderline_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `orders_id` INT(11) NOT NULL,
+  `quantity` INT(11) NOT NULL DEFAULT '0',
+  `sum` DECIMAL(10,2) NOT NULL DEFAULT '0.00',
+  `topping_id` INT(11) NOT NULL,
+  `bottom_id` INT(11) NOT NULL,
+  PRIMARY KEY (`orderline_id`),
+  INDEX `fk_orderline_orders_idx` (`orders_id` ASC) VISIBLE,
+  INDEX `fk_orderline_topping_idx` (`topping_id` ASC) VISIBLE,
+  INDEX `fk_orderline_bottom_idx` (`bottom_id` ASC) VISIBLE,
+  CONSTRAINT `fk_orderline_bottom`
+    FOREIGN KEY (`bottom_id`)
+    REFERENCES `olskercupcakedb`.`bottom` (`bottom_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
+  CONSTRAINT `fk_orderline_orders`
+    FOREIGN KEY (`orders_id`)
+    REFERENCES `olskercupcakedb`.`orders` (`orders_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_orderline_topping`
+    FOREIGN KEY (`topping_id`)
+    REFERENCES `olskercupcakedb`.`topping` (`topping_id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
