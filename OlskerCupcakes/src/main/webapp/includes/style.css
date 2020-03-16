@@ -10,7 +10,11 @@ hr{
 
 #brand-bar{
   /* Gør baggrundsbilledet i headeren mørkere med en gradient */
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("img/bunting-flag.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/bunting-flag.png");
+}
+
+#loginInf{
+  color: #b5b5b5 !important;
 }
 
 #navbar-top{
@@ -18,7 +22,7 @@ hr{
 }
 
 #main-container{
-  padding-top: 210px;
+  padding-top: 250px;
 }
 
 #menu{
