@@ -13,21 +13,14 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
-        commands.put( "oversigt", new oversigt() );
-        commands.put( "adminpage", new adminpage() );
-        commands.put( "Tilfoej", new Tilfoej() );
-        commands.put( "Slet", new Slet() );
-        commands.put( "Opdater", new Opdater() );
-        commands.put( "Nulstil", new Nulstil() );
-        commands.put("logout", new logout());
     }
 
     static Command from( HttpServletRequest request ) {
-        String TagetName = request.getParameter( "taget" );
+        String targetName = request.getParameter( "target" );
         if ( commands == null ) {
             initCommands();
         }
-        return commands.getOrDefault(TagetName, new UnknownCommand() );   // unknowncommand er default.
+        return commands.getOrDefault(targetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
     abstract String execute( HttpServletRequest request, HttpServletResponse response ) 

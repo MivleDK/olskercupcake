@@ -20,12 +20,12 @@
             <tr><td>Login</td>
                 <td>
                     <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="login">
+                        <input type="hidden" name="target" value="login">
                         Email:<br>
-                        <input type="text" name="email">
+                        <input type="text" name="email" value="someone@nowhere.com">
                         <br>
                         Password:<br>
-                        <input type="password" name="password">
+                        <input type="password" name="password" value="sesam">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
@@ -33,19 +33,15 @@
                 <td>Or Register</td>
                 <td>
                     <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="taget" value="register">
-                        Indtast Email:<br>
-                        <input type="text" name="email">
+                        <input type="hidden" name="target" value="register">
+                        Email:<br>
+                        <input type="text" name="email" value="someone@nowhere.com">
                         <br>
-                        Indtast telefon nummer:<br>
-                        <input type="text" name="phone" value=>
+                        Password:<br>
+                        <input type="password" name="password1" value="sesam">
                         <br>
-                        <br>
-                        Indtast Kodeord:<br>
-                        <input type="password" name="password1">
-                        <br>
-                        Bekræft kodeord:<br>
-                        <input type="password" name="password2" value=>
+                        Retype Password:<br>
+                        <input type="password" name="password2" value="sesam">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
@@ -68,7 +64,5 @@
             ${requestScope.error}
 
         </c:if>
-
-
     </body>
 </html>

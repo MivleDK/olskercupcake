@@ -14,15 +14,13 @@ public class Register extends Command {
         String email = request.getParameter( "email" );
         String password1 = request.getParameter( "password1" );
         String password2 = request.getParameter( "password2" );
-        int phone = Integer.parseInt(request.getParameter( "phone" ));
        if ( password1.equals( password2 ) ) {
-            User user = LogicFacade.createUser( email, password1, phone );
+            User user = LogicFacade.createUser( email, password1 );
             HttpSession session = request.getSession();
 
             session.setAttribute("email",email);
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );
-           session.setAttribute( "phone", phone );
             return user.getRole() + "page";
         } else {
             throw new LoginSampleException( "the two passwords did not match" );
