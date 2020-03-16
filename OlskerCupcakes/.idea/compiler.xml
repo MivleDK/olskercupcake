@@ -9,17 +9,17 @@
         <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
         <module name="ProjektSkabelon-master" />
-        <module name="olskersCupcake" />
+        <module name="OlskerCupcakes" />
         <module name="prejektSkabelon" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="OlskerCupcakes" options="-endorseddirs &quot;B:\google drive\Datamatiker\2_semester\cupcakeshop\OlskerCupcakes\target/endorsed&quot;" />
       <module name="ProjektSkabelon-master" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
       <module name="Projektskabelon" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
       <module name="Projektskabelon-master" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
-      <module name="olskersCupcake" options="-endorseddirs &quot;B:\google drive\Datamatiker\2_semester\cupcakeshop\olskersCupcake\target/endorsed&quot;" />
       <module name="prejektSkabelon" options="-endorseddirs &quot;$PROJECT_DIR$/target/endorsed&quot;" />
     </option>
   </component>
