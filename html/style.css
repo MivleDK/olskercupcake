@@ -3,6 +3,11 @@ hr{
   margin-bottom: 3em;
 }
 
+.spacer{
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
 #brand-bar{
   /* Gør baggrundsbilledet i headeren mørkere med en gradient */
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("img/bunting-flag.png");
@@ -21,7 +26,7 @@ hr{
 }
 
 #tagline{
-  margin-top: 0.5em;
+  margin-top: 1.5em;
   font-size: 3em;
 }
 
@@ -32,4 +37,29 @@ hr{
   background-color: #a4a4a4;
   color: white;
   padding-bottom: 1em;
+}
+
+#logUdKnap{
+  float: right !important;
+  display: inline-block;
+}
+
+.brugerLogin{
+  color: #b4b4b4;
+  margin-top: 20px;
+  display: inline;
+}
+
+.display-4{
+  display: inline;
+}
+
+#antal{
+  text-align: center;
+  margin: 0 auto;
+  width: 5em;
+}
+
+.danger{
+  color: rgb(236, 66, 66);
 }
