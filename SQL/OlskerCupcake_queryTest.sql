@@ -106,3 +106,8 @@ DELETE FROM orders WHERE orders_id = '4';
 -- ------------------------------------------
 -- Delete user and all orders, ordelines using DELETE ON CASCADE
 DELETE FROM users WHERE users_id = '4';
+
+-- ------------------------------------------
+-- delete from basket
+-- ------------------------------------------
+DELETE FROM orderline WHERE orderline_id = '';
