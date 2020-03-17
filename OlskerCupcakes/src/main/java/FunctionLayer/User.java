@@ -7,6 +7,13 @@ package FunctionLayer;
 public class User {
 
     /**
+     * delete user
+     */
+    public User(String email) {
+        this.email = email;
+    }
+
+    /**
      * Login
      */
     public User(String email, String password, String role ) {

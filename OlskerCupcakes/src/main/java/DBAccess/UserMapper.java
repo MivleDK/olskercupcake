@@ -57,4 +57,34 @@ public class UserMapper {
         }
     }
 
+    public static void deleteUser( User user ) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "DELETE FROM users WHERE email=?";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setString( 1, user.getEmail() );
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateCredit(String email, String credit) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE users SET credit = credit + ? WHERE email = ?";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setString( 1, credit );
+            ps.setString(2, email);
+            ps.executeUpdate();
+            System.out.println(credit + " " + email);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

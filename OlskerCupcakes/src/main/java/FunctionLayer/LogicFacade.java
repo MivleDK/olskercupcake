@@ -18,4 +18,13 @@ public class LogicFacade {
         return user;
     }
 
+    public static User deleteUser(String email) {
+        User user = new User(email);
+        UserMapper.deleteUser( user );
+        return user;
+    }
+
+    public static void updateCredit(String email, String credit) {
+        UserMapper.updateCredit(email,credit);
+    }
 }
