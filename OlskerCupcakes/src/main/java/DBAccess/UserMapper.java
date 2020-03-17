@@ -18,11 +18,12 @@ public class UserMapper {
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO Users (email, phone, password, role) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getEmail() );
-            ps.setString( 2, user.getPassword() );
-            ps.setString( 3, user.getRole() );
+            ps.setInt(2,user.getPhone());
+            ps.setString( 3, user.getPassword() );
+            ps.setString( 4, user.getRole() );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();

@@ -12,13 +12,15 @@ public class Register extends Command {
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
         String email = request.getParameter( "email" );
+        int phone = Integer.parseInt(request.getParameter( "phone" ));
         String password1 = request.getParameter( "password1" );
         String password2 = request.getParameter( "password2" );
        if ( password1.equals( password2 ) ) {
-            User user = LogicFacade.createUser( email, password1 );
+            User user = LogicFacade.createUser( email, phone, password1 );
             HttpSession session = request.getSession();
 
             session.setAttribute("email",email);
+            session.setAttribute("phone", phone);
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );
             return user.getRole() + "page";

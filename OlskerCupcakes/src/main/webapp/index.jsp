@@ -58,7 +58,7 @@
                 <input type="email" class="form-control" id="OpretInputEmail1" placeholder="E-mail" name="email">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Oprettelefon" name="telefonnummer" placeholder="Telefonnummer">
+                <input type="text" class="form-control" id="Oprettelefon" name="phone" placeholder="Telefonnummer">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password1" placeholder="Adgangskode">
