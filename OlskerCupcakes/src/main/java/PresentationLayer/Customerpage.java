@@ -1,9 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.Bottom;
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,13 +15,21 @@ public class Customerpage extends Command {
         HttpSession session = request.getSession();
 
         List<Bottom> allBottoms = (List<Bottom>) session.getAttribute("allBottoms");
+        List<Topping> allToppings = (List<Topping>) session.getAttribute("allToppings");
 
         if (allBottoms == null) {
             allBottoms = LogicFacade.getBottoms();
         } else {
             allBottoms = (List<Bottom>) session.getAttribute("allBottoms");
         }
-        request.setAttribute("customerpage", allBottoms);
+
+        if (allToppings == null) {
+            allToppings = LogicFacade.getToppings();
+        } else {
+            allToppings = (List<Topping>) session.getAttribute("allToppings");
+        }
+        request.setAttribute("bottom", allBottoms);
+        request.setAttribute("topping", allToppings);
 
         return "customerpage";
     }

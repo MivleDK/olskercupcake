@@ -16,7 +16,7 @@ public class CupCakeMapper {
         List<Bottom> allBottoms = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT buttom_id, name, price FROM bottom";
+            String SQL = "SELECT * FROM bottom ORDER BY bottom_id";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
