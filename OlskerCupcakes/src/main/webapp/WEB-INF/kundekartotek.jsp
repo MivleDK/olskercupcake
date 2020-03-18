@@ -118,6 +118,7 @@
             <form action="FrontController" method="post" style="margin-bottom: 0px;">
                 <input type="hidden" name="target" value="resetcode">
                 <input type="hidden" name="id" value="${element.id}">
+                <input type="hidden" name="email" value="${element.email}">
                 <input type="submit" class="btn btn-warning btn-sm" onclick="return confirm('Er du sikker på at du vil nulstille kode?')" value="Nulstil" />
             </form>
 

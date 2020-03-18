@@ -13,16 +13,6 @@ import java.util.List;
 public class Kundekartotek extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        /*HttpSession session = request.getSession();
-        List<User> costumerList = (List<User>) session.getAttribute("costumerList");
-        //List<User> costumerList = LogicFacade.viewCustomer();
-
-        if (costumerList == null) {
-            costumerList = LogicFacade.viewCustomer();
-        } else {
-            costumerList = (List<User>) session.getAttribute("costumerList");
-        }
-        request.setAttribute("costumerList", costumerList);*/
         HttpSession session = request.getSession();
         List<User> allUsers = (List<User>) session.getAttribute("alluser");
 

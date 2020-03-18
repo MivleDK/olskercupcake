@@ -1,5 +1,6 @@
 package Util;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class UserHelper {
@@ -17,4 +18,5 @@ public class UserHelper {
 
         return randomStr;
     }
+    
 }

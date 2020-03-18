@@ -17,8 +17,10 @@ public class ResetCode extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
         HttpSession session = request.getSession();
         String id = request.getParameter( "id" );
+        String email = request.getParameter("email");
         String newCode = randomCode(8);
         LogicFacade.resetCode( Integer.parseInt(id) , newCode);
+        request.setAttribute("besked", "Brugeren: " + email + " har fået ændret sin code til " + newCode );
         List<User> allUsers = LogicFacade.viewCustomer();
         session.setAttribute("allusers",allUsers);
         request.setAttribute("kundekartotek", allUsers);

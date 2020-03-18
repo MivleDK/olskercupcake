@@ -16,6 +16,7 @@ public class AddCredit extends Command {
         HttpSession session = request.getSession();
         String email = request.getParameter("email");
         String credit = request.getParameter("credit");
+
         LogicFacade.updateCredit(email,credit);
         request.setAttribute("besked", "Brugeren: " + email + " har fået indsat " + credit + " kr. på sin saldo.");
         List<User> allUsers = LogicFacade.viewCustomer();
