@@ -5,8 +5,13 @@
 
 <div class="row">
     <div class="col-lg-6 text-left">
-        <a href="FrontController?target=redirect&destination=adminpage">Ordreoversigt</a> |
-        <a href="FrontController?target=redirect&destination=kundekartotek">Kundekartotek</a>
+        <!--<a href="FrontController?target=redirect&destination=adminpage">Ordreoversigt</a> |
+        <a href="FrontController?target=redirect&destination=kundekartotek">Kundekartotek</a>-->
+        <form action="FrontController" method="post">
+            <input type="hidden" name="target" id="target" value="adminpage">
+            <input type="submit" class="btn btn-link" value="Ordreoversigt" />|
+            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
+        </form>
     </div>
     <div class="col-lg-6 text-right">
         <p id="loginInf">Du er logget ind som ${sessionScope.email}</p>

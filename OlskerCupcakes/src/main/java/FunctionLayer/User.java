@@ -32,9 +32,20 @@ public class User {
         this.role = role;
     }
 
+    /**
+     * View customerList
+     */
+    public User(int id, String email, int phone, double credit ) {
+        this.id = id;
+        this.email = email;
+        this.phone = phone;
+        this.credit = credit;
+    }
+
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;
     private int phone;
+    private double credit;
     private String password; // Should be hashed and secured
     private String role;
 
@@ -49,6 +60,10 @@ public class User {
     public void setPhone(int phone) { this.phone = phone; }
 
     public int getPhone() { return phone; }
+
+    public double getCredit() { return credit; }
+
+    public void setCredit(double credit) { this.credit = credit; }
 
     public String getPassword() {
         return password;

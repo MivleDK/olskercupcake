@@ -10,13 +10,15 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DeleteUser extends Command {
+import static Util.UserHelper.randomCode;
+
+public class ResetCode extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
         HttpSession session = request.getSession();
-        String email = request.getParameter( "email" );
-        LogicFacade.deleteUser( email);
-        request.setAttribute("besked", "Brugeren: " + email + " er slettet");
+        String id = request.getParameter( "id" );
+        String newCode = randomCode(8);
+        LogicFacade.resetCode( Integer.parseInt(id) , newCode);
         List<User> allUsers = LogicFacade.viewCustomer();
         session.setAttribute("allusers",allUsers);
         request.setAttribute("kundekartotek", allUsers);
