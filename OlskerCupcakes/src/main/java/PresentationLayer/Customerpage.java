@@ -17,7 +17,6 @@ public class Customerpage extends Command {
         List<Bottom> allBottoms = (List<Bottom>) session.getAttribute("allBottoms");
         List<Topping> allToppings = (List<Topping>) session.getAttribute("allToppings");
 
-
         if (allBottoms == null) {
             allBottoms = LogicFacade.getBottoms();
         } else {
@@ -31,6 +30,8 @@ public class Customerpage extends Command {
         }
         request.setAttribute("bottom", allBottoms);
         request.setAttribute("topping", allToppings);
+
+
 
         return "customerpage";
     }
