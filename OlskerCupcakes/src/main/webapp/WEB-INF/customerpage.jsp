@@ -6,9 +6,15 @@
 
 <div class="row">
     <div class="col-lg-6 text-left">
-        <a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |
+        <!--<a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |
         <a href="FrontController?target=redirect&destination=kurv">Gå til kurv</a> |
-        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>
+        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>-->
+        <form action="FrontController" method="post">
+            <input type="hidden" name="target" id="target" value="customerpage">
+            <button type="submit" class="btn btn-link" value="customerpage" >Gå til Shop</button>|
+            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv</button>|
+            <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til tidligere ordre</button>
+        </form>
     </div>
     <div class="col-lg-6 text-right">
         <p id="loginInf">Du er logget ind som ${sessionScope.email}</p>

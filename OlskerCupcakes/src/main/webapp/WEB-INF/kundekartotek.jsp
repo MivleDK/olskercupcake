@@ -10,7 +10,7 @@
         <form action="FrontController" method="post">
             <input type="hidden" name="target" id="target" value="adminpage">
             <input type="submit" class="btn btn-link" value="Ordreoversigt" />|
-            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
+            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" />
         </form>
     </div>
     <div class="col-lg-6 text-right">
