@@ -13,25 +13,29 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
-        commands.put( "login", new Login() );
-        commands.put( "register", new Register() );
-        commands.put( "redirect", new Redirect() );
-        commands.put("deleteUser" ,new DeleteUser());
-        commands.put("addCredit" , new AddCredit());
+        commands.put("login", new Login());
+        commands.put("register", new Register());
+        commands.put("redirect", new Redirect());
+        commands.put("deleteUser", new DeleteUser());
+        commands.put("addCredit", new AddCredit());
         commands.put("kundekartotek", new Kundekartotek());
         commands.put("resetcode", new ResetCode());
         commands.put("adminpage", new Adminpage());
+        commands.put("customerpage", new Customerpage());
+        commands.put("kurv", new Kurv());
+        commands.put("tidligereordre", new Tidligereordre());
     }
 
-    static Command from( HttpServletRequest request ) {
-        String targetName = request.getParameter( "target" );
-        if ( commands == null ) {
+
+    static Command from(HttpServletRequest request) {
+        String targetName = request.getParameter("target");
+        if (commands == null) {
             initCommands();
         }
-        return commands.getOrDefault(targetName, new UnknownCommand() );   // unknowncommand er default.
+        return commands.getOrDefault(targetName, new UnknownCommand());   // unknowncommand er default.
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response )
+    abstract String execute(HttpServletRequest request, HttpServletResponse response)
             throws LoginSampleException, SQLException;
 
 }

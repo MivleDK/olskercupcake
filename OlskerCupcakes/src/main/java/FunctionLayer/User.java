@@ -6,6 +6,13 @@ package FunctionLayer;
  */
 public class User {
 
+    private int id; // just used to demo retrieval of autogen keys in UserMapper
+    private String email;
+    private int phone;
+    private double credit;
+    private String password; // Should be hashed and secured
+    private String role;
+
     /**
      * delete user
      */
@@ -41,13 +48,6 @@ public class User {
         this.phone = phone;
         this.credit = credit;
     }
-
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private int phone;
-    private double credit;
-    private String password; // Should be hashed and secured
-    private String role;
 
     public String getEmail() {
         return email;

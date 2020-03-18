@@ -1,5 +1,6 @@
 package FunctionLayer;
 
+import DBAccess.CupCakeMapper;
 import DBAccess.UserMapper;
 
 import java.sql.SQLException;
@@ -36,4 +37,14 @@ public class LogicFacade {
     public static void resetCode(int id, String newCode) throws LoginSampleException {
         UserMapper.resetCode(id,newCode);
     }
+
+    public static List<Bottom> getBottoms() throws SQLException {
+        return CupCakeMapper.getBottoms();
+    }
+
+    public static List<Topping> getToppings() throws SQLException {
+        return CupCakeMapper.getToppings();
+    }
+
+
 }
