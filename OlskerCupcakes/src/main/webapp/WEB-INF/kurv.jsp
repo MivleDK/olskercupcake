@@ -51,55 +51,6 @@
         <td>75,00 kr</td>
         <td><a href="#" class="danger">Fjern</a></td>
     </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td><p class="font-weight-bold">Samlet pris: </p></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>525,00 kr</td>
-    </tr>
     </tbody>
 </table>
 

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customerpage extends Command {
@@ -30,6 +31,13 @@ public class Customerpage extends Command {
         }
         request.setAttribute("bottom", allBottoms);
         request.setAttribute("topping", allToppings);
+
+        List<Bottom> polse = (List<Bottom>) request.getAttribute("bottom");
+        System.out.println(polse.get(1).getName());
+
+//        int bottom = (int) request.getAttribute("bottom");
+//        int topping = (int) request.getAttribute("topping");
+//        int antal = (int) request.getAttribute("antal");
 
 
 

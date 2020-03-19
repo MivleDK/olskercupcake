@@ -37,51 +37,48 @@
     <div class="col-lg-12 text-center">
         <h5>Her kan du bygge din egen cupcake</h5>
     </div>
+
 </div>
 <hr/>
 
+<form name="shop" action="FrontController" method="POST">
 <div class="row">
-    <div class="col-lg-3 text-center">
-        <h5 class="mb-4 mt-4">Vælg en bund</h5>
 
-        <select class="custom-select" name="bottom">
-            <c:forEach var="element" items="${requestScope.bottom}">
-                <option value="${element.id}"> ${element.name}</option>
-            </c:forEach>
+        <div class="col-lg-3 text-center">
+            <h5 class="mb-4 mt-4">Vælg en bund</h5>
 
-        </select>
-
-
-    </div>
-    <div class="col-lg-3 text-center">
-        <h5 class="mb-4 mt-4">Vælg en topping</h5>
-        <select class="custom-select" name="topping">
-           <c:forEach var="element" items="${requestScope.topping}">
-               <option value="${element.id}">${element.name}</option>
-           </c:forEach>
-        </select>
-    </div>
-    <div class="col-lg-3 text-center">
-        <h5 class="mb-4 mt-4">Angiv antal</h5>
-        <input type="text" class="form-control" id="antal" placeholder="Antal" name="antal">
-    </div>
-    <div class="col-lg-3 text-center">
-        <h5 class="mb-4 mt-4">samlet pris: (jstl)</h5>
-        <p>JSTL TAG</p>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="form-group">
-            <form name="shop" action="FrontController" method="POST">
-                <input type="hidden" name="taget" value="bestil">
-                <input type="submit" class="btn-lg btn-success mt-4" value="Læg i kurv"/>
-            </form>
+            <select class="custom-select" name="bottom">
+                <c:forEach var="element" items="${requestScope.bottom}">
+                    <option value="${element.id}"> ${element.name}</option>
+                </c:forEach>
+            </select>
         </div>
-    </div>
+
+        <div class="col-lg-3 text-center">
+
+            <h5 class="mb-4 mt-4">Vælg en topping</h5>
+            <select class="custom-select" name="topping">
+                <c:forEach var="element" items="${requestScope.topping}">
+                    <option value="${element.id}">${element.name}</option>
+                </c:forEach>
+            </select>
+        </div>
+
+        <div class="col-lg-3 text-center">
+            <h5 class="mb-4 mt-4">Angiv antal</h5>
+            <input type="text" class="form-control" id="antal" placeholder="Antal" name="antal">
+        </div>
+        <div class="col-lg-3 text-center">
+            <input type="hidden" name="target" value="customerpage">
+            <p>&nbsp;</p>
+            <input type="submit" class="btn-lg btn-success mt-4" value="Læg i kurv"/>
+        </div>
 </div>
+</form>
+
+</div>
+
+${requestScope.result}
 
 <div class="row">
     <div class="col-lg"></div>
