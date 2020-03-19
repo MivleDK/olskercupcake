@@ -62,7 +62,6 @@
                     <option value="${element.id}">${element.name}</option>
                 </c:forEach>
             </select>
-            <input id="kajkage"  type="text" name="bValg">
         </div>
 
         <div class="col-lg-3 text-center">
@@ -79,10 +78,10 @@
 </form>
 
 </div>
+
 <c:forEach var="e" items="${sessionScope.basket}">
     ${e.bottom} ${e.topping} ${e.amount} ${e.totalPrice}<br>
 </c:forEach>
-
 
 <div class="row">
     <div class="col-lg"></div>
@@ -94,13 +93,5 @@
     <div class="col-lg"></div>
 </div>
 
-<script>
-    function getSel1(){
-        var e = document.getElementById("selectListeButtom");
-        var valg = e.options[e.selectedIndex].value;
-        console.log(valg);
-        document.getElementById("kajkage").value = valg;
-    }
-</script>
 
 <%@include file="../includes/footer.inc" %>
