@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class Customerpage extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         HttpSession session = request.getSession();
 
         List<Bottom> allBottoms = (List<Bottom>) session.getAttribute("allBottoms");
