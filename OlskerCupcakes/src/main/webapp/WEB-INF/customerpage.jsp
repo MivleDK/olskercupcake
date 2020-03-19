@@ -77,8 +77,10 @@
 </form>
 
 </div>
+<c:forEach var="e" items="${sessionScope.basket}">
+    ${e.bottom} ${e.topping} ${e.amount} ${e.totalPrice}<br>
+</c:forEach>
 
-${requestScope.result}
 
 <div class="row">
     <div class="col-lg"></div>
