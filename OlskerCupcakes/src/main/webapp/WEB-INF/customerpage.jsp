@@ -47,7 +47,7 @@
         <div class="col-lg-3 text-center">
             <h5 class="mb-4 mt-4">Vælg en bund</h5>
 
-            <select class="custom-select" name="bottom">
+            <select class="custom-select" name="bottom" id="selectListeButtom">
                 <c:forEach var="element" items="${requestScope.bottom}">
                     <option value="${element.id}"> ${element.name}</option>
                 </c:forEach>
@@ -62,6 +62,7 @@
                     <option value="${element.id}">${element.name}</option>
                 </c:forEach>
             </select>
+            <input id="kajkage"  type="text" name="bValg">
         </div>
 
         <div class="col-lg-3 text-center">
@@ -71,7 +72,8 @@
         <div class="col-lg-3 text-center">
             <input type="hidden" name="target" value="customerpage">
             <p>&nbsp;</p>
-            <input type="submit" class="btn-lg btn-success mt-4" value="Læg i kurv"/>
+            <input type="submit" class="btn-lg btn-success mt-4" value="Læg i kurv" onclick="getSel1()"/>
+
         </div>
 </div>
 </form>
@@ -89,5 +91,14 @@ ${requestScope.result}
     </div>
     <div class="col-lg"></div>
 </div>
+
+<script>
+    function getSel1(){
+        var e = document.getElementById("selectListeButtom");
+        var valg = e.options[e.selectedIndex].value;
+        console.log(valg);
+        document.getElementById("kajkage").value = valg;
+    }
+</script>
 
 <%@include file="../includes/footer.inc" %>

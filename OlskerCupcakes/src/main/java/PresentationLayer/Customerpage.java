@@ -29,11 +29,16 @@ public class Customerpage extends Command {
         } else {
             allToppings = (List<Topping>) session.getAttribute("allToppings");
         }
+
+
+        String b = (String) request.getAttribute("kajkage");
+        System.out.println(b);
+
+
+        //System.out.println(polse.get(1).getName());
+
         request.setAttribute("bottom", allBottoms);
         request.setAttribute("topping", allToppings);
-
-        List<Bottom> polse = (List<Bottom>) request.getAttribute("bottom");
-        System.out.println(polse.get(1).getName());
 
 //        int bottom = (int) request.getAttribute("bottom");
 //        int topping = (int) request.getAttribute("topping");
