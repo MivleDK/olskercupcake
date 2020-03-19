@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <link href="<c:url value="/includes/style.css" />" rel="stylesheet">
 <%@include file="/includes/header.inc" %>
@@ -13,7 +14,7 @@
             <input type="hidden" name="target" id="target" value="customerpage">
             <button type="submit" class="btn btn-link" value="customerpage">Gå til Shop</button>
             |
-            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv</button>
+            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv <span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
             |
             <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til
                 tidligere ordre
@@ -76,12 +77,6 @@
         </div>
 </div>
 </form>
-
-</div>
-
-<c:forEach var="e" items="${sessionScope.basket}">
-    ${e.bottom} ${e.topping} ${e.amount} ${e.totalPrice}<br>
-</c:forEach>
 
 <div class="row">
     <div class="col-lg"></div>

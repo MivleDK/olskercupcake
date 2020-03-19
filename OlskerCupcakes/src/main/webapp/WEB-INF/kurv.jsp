@@ -31,8 +31,6 @@
     </div>
 </div>
 
-<hr/>
-
 <table class="table table-striped">
     <thead>
     <tr>
@@ -44,15 +42,32 @@
     </tr>
     </thead>
     <tbody>
+    <c:set var="sumTotal" value="${0}" />
+<c:forEach var="e" items="${sessionScope.basket}">
+    <c:set var="sumTotal" value="${sumTotal + e.totalPrice}" />
     <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
+        <td>${e.bottom}</td>
+        <td>${e.topping}</td>
+        <td>${e.amount}</td>
+        <td>${e.totalPrice} kr</td>
         <td><a href="#" class="danger">Fjern</a></td>
+    </tr>
+</c:forEach>
+    <tr>
+        <td colspan="3">&nbsp;</td>
+        <td>${sumTotal} kr</td>
+        <td>&nbsp;</td>
     </tr>
     </tbody>
 </table>
+
+<c:if test="${empty sessionScope.basket}">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h5>Din kurv er tom</h5>
+        </div>
+    </div>
+</c:if>
 
 
 <div class="row">
