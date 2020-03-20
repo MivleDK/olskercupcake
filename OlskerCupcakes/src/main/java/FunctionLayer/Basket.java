@@ -6,8 +6,10 @@ public class Basket {
     private String topping;
     private int amount;
     private double totalPrice;
+    private String lineId;
 
-    public Basket (String bottom, String topping, int amount, double totalPrice) {
+    public Basket (String lineId,String bottom, String topping, int amount, double totalPrice) {
+        this.lineId = lineId;
         this.bottom = bottom;
         this.topping = topping;
         this.amount = amount;
@@ -29,4 +31,8 @@ public class Basket {
     public double getTotalPrice() { return totalPrice; }
 
     public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
+
+    public String getLineId() { return lineId; }
+
+    public void setLineId(String lineId) { this.lineId = lineId; }
 }

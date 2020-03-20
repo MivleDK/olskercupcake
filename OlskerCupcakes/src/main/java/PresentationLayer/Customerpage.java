@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Customerpage extends Command {
     @Override
@@ -52,13 +53,15 @@ public class Customerpage extends Command {
         List<Bottom> b = (List<Bottom>) request.getAttribute("bottom");
         List<Topping> t = (List<Topping>) request.getAttribute("topping");
 
-       if(bottomId != -1 && toppingId != -1 && antal != 0) {
+       if(bottomId != -1 && toppingId != -1 && antal > 0) {
+           String lineId = UUID.randomUUID().toString();
+           System.out.println(lineId);
            String bottomName = b.get(bottomId).getName();
            double bottomPrice = b.get(bottomId).getPrice();
            String toppingName = t.get(toppingId).getName();
            double toppingPrice = t.get(toppingId).getPrice();
            double totalPrice = (bottomPrice + toppingPrice) * antal;
-           Basket orderline = new Basket(bottomName, toppingName, antal, totalPrice);
+           Basket orderline = new Basket(lineId,bottomName, toppingName, antal, totalPrice);
            ((List<Basket>) session.getAttribute("basket")).add(orderline);
        }
         return "customerpage";

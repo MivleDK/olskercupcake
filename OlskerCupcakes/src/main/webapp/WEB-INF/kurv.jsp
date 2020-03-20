@@ -50,7 +50,14 @@
         <td>${e.topping}</td>
         <td>${e.amount}</td>
         <td>${e.totalPrice} kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
+
+        <td>
+            <form action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="deleteOrderline">
+                <input type="hidden" name="unikId" value="${e.lineId}">
+                <button type="submit" class="btn btn-link" >Fjern</button>
+            </form>
+        </td>
     </tr>
 </c:forEach>
     <tr>
