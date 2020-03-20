@@ -24,6 +24,7 @@
 <div class="row">
     <div class="col-lg-12 text-center mt-5">
         <h1 class="display-4" id="tagline">Tidligere ordrer</h1>
+        <h2 style="color: red">DET HER ER NICE TO HAVE</h2>
     </div>
 </div>
 

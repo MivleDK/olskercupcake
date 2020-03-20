@@ -18,34 +18,20 @@ public class DeleteOrderline extends Command {
 
         List<Basket> basket = (List<Basket>) session.getAttribute("basket");
 
-        //System.out.println(basket.get(1).getLineId());
-        //basket.remove(1);
-        //basket.remove(searchFunc(basket,unikId));
-        //System.out.println(searchFunc(basket,unikId));
-        //System.out.println(unikId);
-        //System.out.println(basket.get(0).getBottom());
+
+        /**
+         * Find ordrelinjes unikke ID og slet den hvis det findes.
+         */
         for (int i = 0; i < basket.size(); i++) {
             String findID = basket.get(i).getLineId();
             if (findID.equalsIgnoreCase(unikId)) {
-                System.out.println(basket.get(i));
-                //basket.remove(findID);
+                System.out.println(unikId);
+                System.out.println(basket.get(i).getLineId());
+                basket.remove(i);
             }
         }
         System.out.println(basket.size());
 
         return "kurv";
-    }
-
-    private int searchFunc(List<Basket> basket, String unikId){
-        int index = 0;
-        if (basket.size() > 1) {
-            for (int i = 0; i < basket.size(); i++) {
-                String findID = basket.get(i).getLineId();
-                if (findID.equalsIgnoreCase(unikId)) {
-                    index = i;
-                }
-            }
-        }
-        return index;
     }
 }
