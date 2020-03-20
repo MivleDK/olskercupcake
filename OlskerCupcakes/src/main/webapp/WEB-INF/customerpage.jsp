@@ -19,6 +19,10 @@
             <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til
                 tidligere ordre
             </button>
+            |
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log
+                ud
+            </button>
         </form>
     </div>
     <div class="col-lg-6 text-right">

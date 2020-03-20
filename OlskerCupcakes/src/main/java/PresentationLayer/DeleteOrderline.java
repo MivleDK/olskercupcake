@@ -25,8 +25,6 @@ public class DeleteOrderline extends Command {
         for (int i = 0; i < basket.size(); i++) {
             String findID = basket.get(i).getLineId();
             if (findID.equalsIgnoreCase(unikId)) {
-                System.out.println(unikId);
-                System.out.println(basket.get(i).getLineId());
                 basket.remove(i);
             }
         }

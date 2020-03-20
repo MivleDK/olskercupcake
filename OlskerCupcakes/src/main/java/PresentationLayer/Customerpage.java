@@ -66,5 +66,4 @@ public class Customerpage extends Command {
        }
         return "customerpage";
     }
-
 }

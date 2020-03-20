@@ -1,18 +1,27 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <link href="<c:url value="/includes/style.css" />" rel="stylesheet">
 <%@include file="/includes/header.inc" %>
 
 <div class="row">
     <div class="col-lg-6 text-left">
-<%--        <a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |--%>
-<%--        <a href="FrontController?target=redirect&destination=kurv">Gå til kurv</a> |--%>
-<%--        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>--%>
+        <%--        <a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |--%>
+        <%--        <a href="FrontController?target=redirect&destination=kurv">Gå til kurv</a> |--%>
+        <%--        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>--%>
         <form action="FrontController" method="post">
             <input type="hidden" name="target" id="target" value="customerpage">
-            <button type="submit" class="btn btn-link" value="customerpage" >Gå til Shop</button>|
-            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv</button>|
-            <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til tidligere ordre</button>
+            <button type="submit" class="btn btn-link" value="customerpage">Gå til Shop</button>
+            |
+            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv <span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
+            |
+            <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til
+                tidligere ordre
+            </button>
+            |
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log
+                ud
+            </button>
         </form>
 
     </div>
@@ -28,16 +37,15 @@
     </div>
 </div>
 
-<hr />
-
+<hr/>
 
 
 <table class="table table-striped mt-5 mb-5">
     <thead>
     <tr>
-        <th scope="col">Ordre ID: </th>
+        <th scope="col">Ordre ID:</th>
         <th scope="col">2</th>
-        <th scope="col">Dato: </th>
+        <th scope="col">Dato:</th>
         <th scope="col">10-03-2020</th>
     </tr>
     <tr>
@@ -69,7 +77,7 @@
     <tr>
         <td></td>
         <td></td>
-        <td>Total: </td>
+        <td>Total:</td>
         <td>525,00 kr</td>
     </tr>
     </tbody>
@@ -78,9 +86,9 @@
 <table class="table table-striped mt-5 mb-5">
     <thead>
     <tr>
-        <th scope="col">Ordre ID: </th>
+        <th scope="col">Ordre ID:</th>
         <th scope="col">2</th>
-        <th scope="col">Dato: </th>
+        <th scope="col">Dato:</th>
         <th scope="col">10-03-2020</th>
     </tr>
     <tr>
@@ -112,7 +120,7 @@
     <tr>
         <td></td>
         <td></td>
-        <td>Total: </td>
+        <td>Total:</td>
         <td>525,00 kr</td>
     </tr>
     </tbody>
