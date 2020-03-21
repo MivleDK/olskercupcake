@@ -39,7 +39,7 @@ public class OrderCupcake extends Command {
             request.setAttribute("besked", "Der er ingen varer i din kurv?");
             return "kurv";
         }
-        // kill session on basket
+        // Empty basket
         basket.clear();
         request.setAttribute("besked", "Tak for din ordre");
 

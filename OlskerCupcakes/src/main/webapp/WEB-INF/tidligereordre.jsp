@@ -34,20 +34,19 @@
 <div class="row">
     <div class="col-lg-12 text-center mt-5">
         <h1 class="display-4" id="tagline">Tidligere ordrer</h1>
-        <h2 style="color: red">DET HER ER NICE TO HAVE</h2>
     </div>
 </div>
 
 <hr/>
 
-
+<c:forEach var="e" items="${requestScope.orders}">
 <table class="table table-striped mt-5 mb-5">
     <thead>
     <tr>
         <th scope="col">Ordre ID:</th>
-        <th scope="col">2</th>
+        <th scope="col">${e.ordersId}</th>
         <th scope="col">Dato:</th>
-        <th scope="col">10-03-2020</th>
+        <th scope="col">${e.ordersDate}</th>
     </tr>
     <tr>
         <th scope="col">Bund</th>
@@ -57,75 +56,31 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
+    <c:set var="sumTotal" value="${0}" />
+    <c:forEach var="list" items="${requestScope.previousOrders}">
+        <c:choose>
+            <c:when test="${e.ordersId == list.ordersId}">
+                <c:set var="sumTotal" value="${sumTotal + list.sum}" />
+                <tr>
+                    <td>${list.bottom}</td>
+                    <td>${list.topping}</td>
+                    <td>${list.quantity}</td>
+                    <td>${list.sum} kr</td>
+                </tr>
+            </c:when>
+        </c:choose>
+    </c:forEach>
+
     <tr>
         <td></td>
         <td></td>
         <td>Total:</td>
-        <td>525,00 kr</td>
+        <td>${sumTotal} kr</td>
     </tr>
     </tbody>
 </table>
 <div class="spacer"></div>
-<table class="table table-striped mt-5 mb-5">
-    <thead>
-    <tr>
-        <th scope="col">Ordre ID:</th>
-        <th scope="col">2</th>
-        <th scope="col">Dato:</th>
-        <th scope="col">10-03-2020</th>
-    </tr>
-    <tr>
-        <th scope="col">Bund</th>
-        <th scope="col">Top</th>
-        <th scope="col">Antal</th>
-        <th scope="col">Pris</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td>Total:</td>
-        <td>525,00 kr</td>
-    </tr>
-    </tbody>
-</table>
+</c:forEach>
 
 
 <%@include file="../includes/footer.inc" %>

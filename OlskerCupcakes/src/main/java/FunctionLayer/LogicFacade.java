@@ -59,4 +59,16 @@ public class LogicFacade {
     public static void updateUserCredit(int userId, double sumTotal) throws LoginSampleException {
         OrderMapper.updateUserCredit(userId,sumTotal);
     }
+
+    public static List<Orders> getOldOrders(int userId) throws SQLException {
+        return OrderMapper.getOldOrders(userId);
+    }
+
+    public static List<Orderline> getOldOrderlines(int ordersId) throws SQLException {
+        return  OrderMapper.getOldOrderlines(ordersId);
+    }
+
+    public static List<PreviousOrders> getPreviousOrders(int userId) throws SQLException {
+        return OrderMapper.getPreviousOrders(userId);
+    }
 }
