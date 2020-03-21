@@ -26,10 +26,14 @@ public class Customerpage extends Command {
             session.setAttribute("basket", basket);
         }
 
+        int bId = 0;
+        int tId = 0;
         int bottomId = -1;
         int toppingId = -1;
         int antal = 0;
         try {
+            bId = Integer.parseInt(request.getParameter("bottom"));
+            tId = Integer.parseInt(request.getParameter("topping"));
             bottomId = Integer.parseInt(request.getParameter("bottom")) - 1;
             toppingId = Integer.parseInt(request.getParameter("topping")) - 1;
             antal = Integer.parseInt(request.getParameter("antal"));
@@ -55,13 +59,14 @@ public class Customerpage extends Command {
 
        if(bottomId != -1 && toppingId != -1 && antal > 0) {
            String lineId = UUID.randomUUID().toString();
-           System.out.println(lineId);
+           //System.out.println(lineId);
+
            String bottomName = b.get(bottomId).getName();
            double bottomPrice = b.get(bottomId).getPrice();
            String toppingName = t.get(toppingId).getName();
            double toppingPrice = t.get(toppingId).getPrice();
            double totalPrice = (bottomPrice + toppingPrice) * antal;
-           Basket orderline = new Basket(lineId,bottomName, toppingName, antal, totalPrice);
+           Basket orderline = new Basket(lineId,bId,tId,bottomName, toppingName, antal, totalPrice);
            ((List<Basket>) session.getAttribute("basket")).add(orderline);
        }
         return "customerpage";

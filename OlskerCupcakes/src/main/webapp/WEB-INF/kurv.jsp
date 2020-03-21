@@ -13,7 +13,7 @@
             <input type="hidden" name="target" id="target" value="customerpage">
             <button type="submit" class="btn btn-link" value="customerpage">Gå til Shop</button>
             |
-            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv</button>
+            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv<span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
             |
             <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til
                 tidligere ordre
@@ -54,7 +54,7 @@
         <td>
             <form action="FrontController" method="post" style="margin-bottom: 0px;">
                 <input type="hidden" name="target" value="deleteOrderline">
-                <input type="hidden" name="unikId" value="${e.lineId}">
+                <input type="hidden" name="uniqueId" value="${e.lineId}">
                 <button type="submit" class="btn btn-link" >Fjern</button>
             </form>
         </td>
@@ -67,7 +67,7 @@
     </tr>
     </tbody>
 </table>
-
+${requestScope.besked}
 <c:if test="${empty sessionScope.basket}">
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -79,12 +79,13 @@
 
 <div class="row">
     <div class="col-lg-12 text-center">
-        <div class="form-group">
-            <form name="shop" action="FrontController" method="POST">
-                <input type="hidden" name="taget" value="bestil">
-                <input type="submit" class="btn-lg btn-success mt-4" value="Afgiv ordre"/>
+        <!--<div class="form-group">-->
+            <form name="shop" action="FrontController" method="post">
+                <input type="hidden" name="target" value="orderCupcake">
+                <input type="hidden" name="sumTotal" value="${sumTotal}">
+                <button type="submit" class="btn-lg btn-success mt-4">Afgiv ordre</button>
             </form>
-        </div>
+        <!--</div>-->
     </div>
 </div>
 

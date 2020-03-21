@@ -25,6 +25,7 @@ abstract class Command {
         commands.put("kurv", new Kurv());
         commands.put("tidligereordre", new Tidligereordre());
         commands.put("deleteOrderline", new DeleteOrderline());
+        commands.put("orderCupcake", new OrderCupcake());
     }
 
 

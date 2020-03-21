@@ -1,6 +1,7 @@
 package FunctionLayer;
 
 import DBAccess.CupCakeMapper;
+import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
 import java.sql.SQLException;
@@ -47,4 +48,15 @@ public class LogicFacade {
     }
 
 
+    public static int createOrder(int userId) throws LoginSampleException {
+        return OrderMapper.createOrder(userId);
+    }
+
+    public static void createOrderline(int orderId, int quantity, double totalPrice, int toppingId, int bottomId) throws LoginSampleException {
+        OrderMapper.createOrderLine(orderId,quantity,totalPrice,toppingId,bottomId);
+    }
+
+    public static void updateUserCredit(int userId, double sumTotal) throws LoginSampleException {
+        OrderMapper.updateUserCredit(userId,sumTotal);
+    }
 }

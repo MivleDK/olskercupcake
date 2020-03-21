@@ -11,7 +11,7 @@
         <form action="FrontController" method="post">
             <input type="hidden" name="target" id="target" value="customerpage">
             <button type="submit" class="btn btn-link" value="customerpage" >Gå til Shop</button>|
-            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv</button>|
+            <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv<span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>|
             <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til tidligere ordre</button>
         </form>
 

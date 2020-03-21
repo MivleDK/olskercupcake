@@ -14,7 +14,7 @@ public class DeleteOrderline extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
         HttpSession session = request.getSession();
 
-        String unikId = request.getParameter("unikId");
+        String uniqueId = request.getParameter("uniqueId");
 
         List<Basket> basket = (List<Basket>) session.getAttribute("basket");
 
@@ -24,13 +24,13 @@ public class DeleteOrderline extends Command {
          */
         for (int i = 0; i < basket.size(); i++) {
             String findID = basket.get(i).getLineId();
-            if (findID.equalsIgnoreCase(unikId)) {
-                System.out.println(unikId);
-                System.out.println(basket.get(i).getLineId());
+            if (findID.equalsIgnoreCase(uniqueId)) {
+                //System.out.println(unikId);
+                //System.out.println(basket.get(i).getLineId());
                 basket.remove(i);
             }
         }
-        System.out.println(basket.size());
+        //System.out.println(basket.size());
 
         return "kurv";
     }

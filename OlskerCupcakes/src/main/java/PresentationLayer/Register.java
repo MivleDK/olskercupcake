@@ -20,6 +20,7 @@ public class Register extends Command {
             User user = LogicFacade.createUser( email, phone, password1 );
             HttpSession session = request.getSession();
 
+            session.setAttribute("userId", user.getId());
             session.setAttribute("email",email);
             session.setAttribute("phone", phone);
             session.setAttribute( "user", user );
