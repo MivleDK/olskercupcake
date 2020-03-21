@@ -3,6 +3,16 @@ hr{
   margin-bottom: 3em;
 }
 
+#logUdKnap{
+  color: #a4a4a4 !important;
+  text-align: left !important;
+}
+
+#logUdKnap:hover{
+  color: #a1a1a1 !important;
+  text-align: left !important;
+}
+
 .spacer{
   margin-top: 5em;
   margin-bottom: 5em;
@@ -41,11 +51,6 @@ hr{
   background-color: #a4a4a4;
   color: white;
   padding-bottom: 1em;
-}
-
-#logUdKnap{
-  float: right !important;
-  display: inline-block;
 }
 
 .brugerLogin{

@@ -9,8 +9,11 @@
         <a href="FrontController?target=redirect&destination=kundekartotek">Kundekartotek</a>-->
         <form action="FrontController" method="post">
             <input type="hidden" name="target" id="target" value="adminpage">
-            <input type="submit" class="btn btn-link" value="Ordreoversigt" />|
+            <input type="submit" class="btn btn-link" value="Ordreoversigt" />
+            |
             <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" />
+            |
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log ud</button>
         </form>
     </div>
     <div class="col-lg-6 text-right">
