@@ -13,7 +13,7 @@
             |
             <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" />
             |
-            <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log ud</button>
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud</button>
         </form>
     </div>
     <div class="col-lg-6 text-right">

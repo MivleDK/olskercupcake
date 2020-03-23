@@ -21,7 +21,7 @@
                     tidligere ordre
                 </button>
                 |
-                <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log
+                <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log
                     ud
                 </button>
             </form>

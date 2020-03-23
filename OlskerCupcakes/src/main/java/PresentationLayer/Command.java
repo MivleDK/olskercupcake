@@ -26,6 +26,7 @@ abstract class Command {
         commands.put("tidligereordre", new Tidligereordre());
         commands.put("deleteOrderline", new DeleteOrderline());
         commands.put("orderCupcake", new OrderCupcake());
+        commands.put("logout", new Logout());
     }
 
 

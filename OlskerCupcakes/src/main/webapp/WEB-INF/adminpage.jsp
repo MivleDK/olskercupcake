@@ -13,7 +13,7 @@
             |
             <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
             |
-            <button type="submit" class="btn btn-link" id="logUdKnap" value="LogUd" onclick="change(this.value)">Log ud</button>
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud</button>
         </form>
     </div>
     <div class="col-lg-6 text-right">
@@ -39,11 +39,12 @@
         <th scope="col">Samlet pris</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>1</td>
+        <td>3</td>
         <td>10-03-2020</td>
         <td>
             <select class="custom-select" name="ordrestatus">
@@ -55,24 +56,23 @@
         <td>ikkeSteinBagger@gmail.com</td>
         <td>12</td>
         <td>525,00 kr</td>
-        <td><a href="#" class="info">Vis ordre</a></td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>10-03-2020</td>
         <td>
-            <select class="custom-select" name="ordrestatus">
-                <option>Bestilt</option>
-                <option>Behandler</option>
-                <option>Afsluttet</option>
-            </select>
+            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+            <input type="hidden" name="target" value="opdater">
+            <input type="hidden" name="opdaterOrdre" value="">
+            <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
+            </form>
         </td>
-        <td>ikkeSteinBagger@gmail.com</td>
-        <td>12</td>
-        <td>525,00 kr</td>
-        <td><a href="#" class="info">Vis ordre</a></td>
-        <td><a href="#" class="danger">Fjern</a></td>
+        <td>
+            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
+        </td>
+        <td>
+            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="deleteOrder">
+                <input type="hidden" name="orderId" value="">
+                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
+            </form>
+        </td>
     </tr>
     <tr>
         <td>3</td>
@@ -87,8 +87,54 @@
         <td>ikkeSteinBagger@gmail.com</td>
         <td>12</td>
         <td>525,00 kr</td>
-        <td><a href="#" class="info">Vis ordre</a></td>
-        <td><a href="#" class="danger">Fjern</a></td>
+        <td>
+            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="opdater">
+                <input type="hidden" name="opdaterOrdre" value="">
+                <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
+            </form>
+        </td>
+        <td>
+            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
+        </td>
+        <td>
+            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="deleteOrder">
+                <input type="hidden" name="orderId" value="">
+                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>10-03-2020</td>
+        <td>
+            <select class="custom-select" name="ordrestatus">
+                <option>Bestilt</option>
+                <option>Behandler</option>
+                <option>Afsluttet</option>
+            </select>
+        </td>
+        <td>ikkeSteinBagger@gmail.com</td>
+        <td>12</td>
+        <td>525,00 kr</td>
+        <td>
+            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="opdater">
+                <input type="hidden" name="opdaterOrdre" value="">
+                <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
+            </form>
+        </td>
+        <td>
+            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
+        </td>
+        <td>
+            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="deleteOrder">
+                <input type="hidden" name="orderId" value="">
+                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
