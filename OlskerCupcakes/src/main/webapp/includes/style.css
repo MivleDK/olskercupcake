@@ -73,3 +73,7 @@ hr{
   color: rgb(236, 66, 66);
 }
 
+.table-striped-2nth tbody tr:nth-child(4n+1), .table-striped-2nth tbody tr:nth-child(4n+2) {
+  background: #f2f2f2;
+}
+

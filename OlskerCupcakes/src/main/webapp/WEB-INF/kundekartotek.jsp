@@ -29,7 +29,7 @@
 </div>
 
 
-<table class="table table-striped text-center">
+<table class="table table-striped-2nth text-center">
     <thead>
     <tr>
         <th scope="col">Kunde ID</th>
@@ -50,16 +50,7 @@
             <button class="btn btn-success btn-sm" type="button" data-toggle="collapse" data-target="#collapse_${element.id}" aria-expanded="false" aria-controls="collapseExample">
                 Indsæt
             </button>
-            <div class="collapse" id="collapse_${element.id}">
-               <!-- <div class="card card-body">-->
-                    <form name="indsaetPenge" action="FrontController" method="POST" style="margin-bottom: 0px;">
-                        <input type="hidden" name="target" value="addCredit">
-                        <input type="hidden" name="email" value="${element.email}">
-                        <input type="text" class="form-control mt-1" placeholder="Beløb" name="credit">
-                        <input type="submit" class="btn btn-primary btn-sm mt-1" value="Ok" />
-                    </form>
-                <!--</div>-->
-            </div>
+
         </td>
         <td>
             <form action="FrontController" method="post" style="margin-bottom: 0px;">
@@ -78,26 +69,24 @@
             </form>
         </td>
     </tr>
-    </c:forEach>
-    <!--
-    <tr>
-        <td>2</td>
-        <td>bestemtikkesteinbagger@gmail.com</td>
-        <td>42447831</td>
-        <td>1550</td>
-        <td><input type="submit" class="btn btn-success btn-sm" value="Indsæt" /></td>
-        <td><input type="submit" class="btn btn-warning btn-sm" value="Nulstil" /></td>
-        <td><input type="submit" class="btn btn-danger btn-sm" value="Slet" /></td>
+    <tr class="collapse" style="background-color: #ffffff" id="collapse_${element.id}">
+        <form name="indsaetPenge" action="FrontController" method="POST" style="margin-bottom: 0px;">
+            <td colspan="7">
+                <div class="row">
+                    <div class="col-7">&nbsp;</div>
+                    <div class="col-3">
+                        <input type="hidden" name="target" value="addCredit">
+                        <input type="hidden" name="email" value="${element.email}">
+                        <input type="text" class="form-control mt-1" placeholder="Beløb" name="credit">
+                    </div>
+                    <div class="col-1"><input type="submit" class="btn btn-primary btn-sm mt-1" value="Ok" /></div>
+                    <div class="col-1">&nbsp;</div>
+                </div>
+            </td>
+        </form>
     </tr>
-    <tr>
-        <td>3</td>
-        <td>steinbaggernooot@gmail.com</td>
-        <td>42447831</td>
-        <td>15</td>
-        <td><input type="submit" class="btn btn-success btn-sm" value="Indsæt" /></td>
-        <td><input type="submit" class="btn btn-warning btn-sm" value="Nulstil" /></td>
-        <td><input type="submit" class="btn btn-danger btn-sm" value="Slet" /></td>
-    </tr>-->
+    </c:forEach>
+
     </tbody>
 </table>
 

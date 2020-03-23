@@ -31,7 +31,7 @@
 </div>
 
 
-<table class="table table-striped text-center">
+<table class="table table-striped-2nth text-center">
     <thead>
     <tr>
         <th scope="col">Ordre ID</th>
@@ -73,12 +73,12 @@
         </td>
         <td>
 
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal1">
+            <button class="btn btn-success btn-sm" type="button" data-toggle="collapse" data-target="#collapse_${order.ordersId}" aria-expanded="false" aria-controls="collapseExample">
                 Vis ordre
             </button>
 
-        <c:forEach var="orderLine" items="${}">
 
+<!--
             <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -88,30 +88,13 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <table class="table table-striped mt-5 mb-5">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Bund</th>
-                                    <th scope="col">Top</th>
-                                    <th scope="col">Antal</th>
-                                    <th scope="col">Pris</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Chokolade</td>
-                                    <td>Vanilje</td>
-                                    <td>3</td>
-                                    <td>75 kr</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="modal-body">-->
+
+                        <!--</div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
+            </div>-->
+
 
         </td>
         <td>
@@ -121,11 +104,44 @@
                 <input type="submit" class="btn btn-danger btn-sm" value="Slet"
                        onclick="return confirm('Er du sikker på at du vil slette?')"/>
             </form>
-
-
         </td>
-
     </tr>
+        <tr class="collapse" style="background-color: #ffffff"  id="collapse_${order.ordersId}">
+            <td colspan="9">
+                <table class="table">
+                    <thead>
+                    <tr style="background-color: #ffffff">
+                        <th scope="col">Bund</th>
+                        <th scope="col">Top</th>
+                        <th scope="col">Antal</th>
+                        <th scope="col">Pris</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr style="background-color: #ffffff">
+                        <td>Chokolade</td>
+                        <td>Vanilje</td>
+                        <td>3</td>
+                        <td>75 kr</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>Chokolade</td>
+                        <td>Vanilje</td>
+                        <td>3</td>
+                        <td>75 kr</td>
+                    </tr>
+                    <tr style="background-color: #ffffff">
+                        <td>Chokolade</td>
+                        <td>Vanilje</td>
+                        <td>3</td>
+                        <td>75 kr</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
     </c:forEach>
 
     </tbody>
