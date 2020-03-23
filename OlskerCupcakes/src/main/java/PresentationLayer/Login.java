@@ -30,8 +30,10 @@ public class Login extends Command {
 
         List<Bottom> allBottoms = LogicFacade.getBottoms();
         List<Topping> allToppings = LogicFacade.getToppings();
+        List<Orders> allOrders = LogicFacade.getAllOrders();
         request.setAttribute("bottom", allBottoms);
         request.setAttribute("topping", allToppings);
+        request.setAttribute("allOrders", allOrders);
 
         return user.getRole() + "page";
     }

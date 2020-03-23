@@ -1,9 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Orders;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +11,16 @@ import java.util.List;
 
 public class Adminpage extends Command {
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ParseException, ClassNotFoundException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        HttpSession session = request.getSession();
 
-        List<Orders> allOrders = LogicFacade.getAllOrders();
+        List<Orders> allOrders = (List<Orders>) session.getAttribute("allOrders");
+
+        if (allOrders == null) {
+            allOrders = LogicFacade.getAllOrders();
+        } else {
+            allOrders = (List<Orders>) session.getAttribute("allOrders");
+        }
         request.setAttribute("allOrders", allOrders);
 
         return "adminpage";
