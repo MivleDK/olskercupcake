@@ -9,11 +9,14 @@
         <a href="FrontController?target=redirect&destination=kundekartotek">Kundekartotek</a>-->
         <form action="FrontController" method="post">
             <input type="hidden" name="target" id="target" value="adminpage">
-            <input type="submit" class="btn btn-link" value="Ordreoversigt" />
+            <input type="submit" class="btn btn-link" value="Ordreoversigt"/>
             |
-            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
+            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link"
+                   value="Kundekartotek"/>
             |
-            <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud</button>
+            <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout"
+                    onclick="change(this.value)">Log ud
+            </button>
         </form>
     </div>
     <div class="col-lg-6 text-right">
@@ -43,99 +46,88 @@
     </tr>
     </thead>
     <tbody>
+
+    <c:forEach var="order" items="${requestScope.allOrders}">
+
     <tr>
-        <td>3</td>
-        <td>10-03-2020</td>
+
+        <td>${order.ordersId}</td>
+        <td>${order.ordersDate}</td>
         <td>
             <select class="custom-select" name="ordrestatus">
+                <option>${order.status}</option>
                 <option>Bestilt</option>
                 <option>Behandler</option>
                 <option>Afsluttet</option>
             </select>
         </td>
-        <td>ikkeSteinBagger@gmail.com</td>
-        <td>12</td>
-        <td>525,00 kr</td>
-        <td>
-            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-            <input type="hidden" name="target" value="opdater">
-            <input type="hidden" name="opdaterOrdre" value="">
-            <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
-            </form>
-        </td>
-        <td>
-            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
-        </td>
-        <td>
-            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-                <input type="hidden" name="target" value="deleteOrder">
-                <input type="hidden" name="orderId" value="">
-                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>10-03-2020</td>
-        <td>
-            <select class="custom-select" name="ordrestatus">
-                <option>Bestilt</option>
-                <option>Behandler</option>
-                <option>Afsluttet</option>
-            </select>
-        </td>
-        <td>ikkeSteinBagger@gmail.com</td>
-        <td>12</td>
-        <td>525,00 kr</td>
+        <td>${order.email}</td>
+        <td>${order.quantity}</td>
+        <td>${order.total} kr</td>
         <td>
             <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
                 <input type="hidden" name="target" value="opdater">
                 <input type="hidden" name="opdaterOrdre" value="">
-                <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
+                <input type="submit" class="btn btn-success btn-sm" value="Opdater"/>
             </form>
         </td>
         <td>
-            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
+
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal1">
+                Vis ordre
+            </button>
+
+        <c:forEach var="orderLine" items="${}">
+
+            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Din ordre</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped mt-5 mb-5">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Bund</th>
+                                    <th scope="col">Top</th>
+                                    <th scope="col">Antal</th>
+                                    <th scope="col">Pris</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Chokolade</td>
+                                    <td>Vanilje</td>
+                                    <td>3</td>
+                                    <td>75 kr</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+
         </td>
         <td>
             <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
                 <input type="hidden" name="target" value="deleteOrder">
                 <input type="hidden" name="orderId" value="">
-                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
+                <input type="submit" class="btn btn-danger btn-sm" value="Slet"
+                       onclick="return confirm('Er du sikker på at du vil slette?')"/>
             </form>
+
+
         </td>
+
     </tr>
-    <tr>
-        <td>3</td>
-        <td>10-03-2020</td>
-        <td>
-            <select class="custom-select" name="ordrestatus">
-                <option>Bestilt</option>
-                <option>Behandler</option>
-                <option>Afsluttet</option>
-            </select>
-        </td>
-        <td>ikkeSteinBagger@gmail.com</td>
-        <td>12</td>
-        <td>525,00 kr</td>
-        <td>
-            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-                <input type="hidden" name="target" value="opdater">
-                <input type="hidden" name="opdaterOrdre" value="">
-                <input type="submit" class="btn btn-success btn-sm" value="Opdater" />
-            </form>
-        </td>
-        <td>
-            <input type="button" class="btn btn-primary btn-sm" value="Vis ordre">
-        </td>
-        <td>
-            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-                <input type="hidden" name="target" value="deleteOrder">
-                <input type="hidden" name="orderId" value="">
-                <input type="submit" class="btn btn-danger btn-sm" value="Slet" onclick="return confirm('Er du sikker på at du vil slette?')"/>
-            </form>
-        </td>
-    </tr>
+    </c:forEach>
+
     </tbody>
 </table>
 

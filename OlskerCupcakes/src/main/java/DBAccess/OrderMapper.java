@@ -1,6 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.*;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -15,15 +16,15 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orders (users_id) VALUES (?);";
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setInt(1,userId);
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, userId);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
-            int orderId = ids.getInt( 1 );
+            int orderId = ids.getInt(1);
             return orderId;
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LoginSampleException( ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
         }
     }
 
@@ -31,15 +32,15 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO orderline (orders_id,quantity,sum,topping_id,bottom_id) VALUES (?, ?, ?, ?, ?);";
-            PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setInt(1,orderId);
-            ps.setInt(2,quantity);
-            ps.setDouble(3,totalPrice);
-            ps.setInt(4,toppingId);
-            ps.setInt(5,bottomId);
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderId);
+            ps.setInt(2, quantity);
+            ps.setDouble(3, totalPrice);
+            ps.setInt(4, toppingId);
+            ps.setInt(5, bottomId);
             ps.executeUpdate();
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LoginSampleException( ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
         }
     }
 
@@ -47,12 +48,12 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE users SET credit = credit - ? WHERE users_id = ?";
-            PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setDouble( 1, sumTotal );
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setDouble(1, sumTotal);
             ps.setInt(2, userId);
             ps.executeUpdate();
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LoginSampleException( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
         }
     }
 
@@ -62,7 +63,7 @@ public class OrderMapper {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM orders WHERE status = 'Afsluttet' AND users_id = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1,userId);
+            ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int oId = rs.getInt("orders_id");
@@ -73,7 +74,7 @@ public class OrderMapper {
                 DateFormat iFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 DateFormat oFormatter = new SimpleDateFormat("dd-MM-yyyy");
                 String strDateTime = oFormatter.format(iFormatter.parse(orderDate));
-                Orders orders = new Orders(oId, uId, strDateTime,status);
+                Orders orders = new Orders(oId, uId, strDateTime, status);
                 oldOrders.add(orders);
             }
         } catch (ClassNotFoundException | SQLException | ParseException ex) {
@@ -94,7 +95,7 @@ public class OrderMapper {
                     "INNER JOIN bottom b on ol.bottom_id = b.bottom_id\n" +
                     "WHERE o.status = 'Afsluttet' AND o.orders_id = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1,ordersId);
+            ps.setInt(1, ordersId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int oId = rs.getInt("orders_id");
@@ -124,7 +125,7 @@ public class OrderMapper {
                     "INNER JOIN bottom b on ol.bottom_id = b.bottom_id\n" +
                     "WHERE o.status = 'Afsluttet' AND u.users_id = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1,userId);
+            ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int oId = rs.getInt("orders_id");
@@ -137,12 +138,46 @@ public class OrderMapper {
                 DateFormat iFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 DateFormat oFormatter = new SimpleDateFormat("dd-MM-yyyy");
                 String strDateTime = oFormatter.format(iFormatter.parse(orderDate));
-                PreviousOrders previousOrders = new PreviousOrders(oId, strDateTime,bottom,topping,quantity,sum);
+                PreviousOrders previousOrders = new PreviousOrders(oId, strDateTime, bottom, topping, quantity, sum);
                 getPreviousOrders.add(previousOrders);
             }
         } catch (ClassNotFoundException | SQLException | ParseException ex) {
             throw new SQLException(ex.getMessage());
         }
         return getPreviousOrders;
+    }
+
+    public static List<Orders> getAllOrders() throws SQLException {
+        List<Orders> allOrders = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT o.orders_id, o.order_date, o.status, u.email, sum(ol.quantity) as quantity, sum(ol.sum) as total  FROM users u\n" +
+                    "INNER JOIN orders o on u.users_id = o.users_id\n" +
+                    "INNER JOIN orderline ol on o.orders_id = ol.orders_id\n" +
+                    "GROUP BY o.orders_id\n" +
+                    "ORDER BY o.orders_id;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int oId = rs.getInt("orders_id");
+                String orderDate = rs.getString("order_date");
+                String status = rs.getString("status");
+                String email = rs.getString("email");
+                int quantity = rs.getInt("quantity");
+                double total = rs.getDouble("total");
+
+                DateFormat iFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                DateFormat oFormatter = new SimpleDateFormat("dd-MM-yyyy");
+                String strDateTime = null;
+                strDateTime = oFormatter.format(iFormatter.parse(orderDate));
+                Orders allOrder = new Orders(oId, strDateTime, status, email, quantity, total);
+                allOrders.add(allOrder);
+            }
+        } catch (ClassNotFoundException | SQLException | ParseException ex) {
+            throw new SQLException(ex.getMessage());
+        }
+        return allOrders;
     }
 }

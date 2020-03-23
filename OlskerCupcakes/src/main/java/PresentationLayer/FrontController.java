@@ -8,6 +8,7 @@ package PresentationLayer;
 import FunctionLayer.LoginSampleException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +40,7 @@ public class FrontController extends HttpServlet {
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
-        } catch (LoginSampleException | SQLException ex ) {
+        } catch (LoginSampleException | SQLException | ParseException | ClassNotFoundException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         }

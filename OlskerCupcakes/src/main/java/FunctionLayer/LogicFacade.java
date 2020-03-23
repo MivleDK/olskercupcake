@@ -5,6 +5,7 @@ import DBAccess.OrderMapper;
 import DBAccess.UserMapper;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -47,7 +48,6 @@ public class LogicFacade {
         return CupCakeMapper.getToppings();
     }
 
-
     public static int createOrder(int userId) throws LoginSampleException {
         return OrderMapper.createOrder(userId);
     }
@@ -70,5 +70,9 @@ public class LogicFacade {
 
     public static List<PreviousOrders> getPreviousOrders(int userId) throws SQLException {
         return OrderMapper.getPreviousOrders(userId);
+    }
+
+    public static List<Orders> getAllOrders() throws SQLException {
+        return OrderMapper.getAllOrders();
     }
 }
