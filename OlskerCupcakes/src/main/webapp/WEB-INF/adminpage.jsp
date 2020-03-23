@@ -27,7 +27,6 @@
     </div>
 </div>
 
-<hr />
 
 <table class="table table-striped text-center">
     <thead>
@@ -56,12 +55,8 @@
         <td>ikkeSteinBagger@gmail.com</td>
         <td>12</td>
         <td>525,00 kr</td>
-        <td>
         <td><a href="#" class="info">Vis ordre</a></td>
-        </td>
-        <td>
         <td><a href="#" class="danger">Fjern</a></td>
-        </td>
     </tr>
     <tr>
         <td>2</td>
@@ -76,12 +71,8 @@
         <td>ikkeSteinBagger@gmail.com</td>
         <td>12</td>
         <td>525,00 kr</td>
-        <td>
         <td><a href="#" class="info">Vis ordre</a></td>
-        </td>
-        <td>
         <td><a href="#" class="danger">Fjern</a></td>
-        </td>
     </tr>
     <tr>
         <td>3</td>
@@ -96,12 +87,8 @@
         <td>ikkeSteinBagger@gmail.com</td>
         <td>12</td>
         <td>525,00 kr</td>
-        <td>
         <td><a href="#" class="info">Vis ordre</a></td>
-        </td>
-        <td>
         <td><a href="#" class="danger">Fjern</a></td>
-        </td>
     </tr>
     </tbody>
 </table>
