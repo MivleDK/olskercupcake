@@ -12,8 +12,12 @@ import java.util.List;
 public class Adminpage extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+
         HttpSession session = request.getSession();
 
+        /**
+         * HENT ORDRER
+         */
         List<Orders> allOrders = (List<Orders>) session.getAttribute("allOrders");
 
         if (allOrders == null) {
@@ -21,7 +25,21 @@ public class Adminpage extends Command {
         } else {
             allOrders = (List<Orders>) session.getAttribute("allOrders");
         }
+
         request.setAttribute("allOrders", allOrders);
+
+
+        /**
+         * HENT ORDRERLINKER
+         */
+        List<Orderline> allOrderlines = (List<Orderline>) session.getAttribute("AllOrderlines");
+
+        if (allOrderlines == null){
+            allOrderlines = LogicFacade.getOrderlines();
+        } else {
+            allOrderlines = (List<Orderline>) session.getAttribute("AllOrderlines");
+        }
+        request.setAttribute("AllOrderlines", allOrderlines);
 
         return "adminpage";
     }

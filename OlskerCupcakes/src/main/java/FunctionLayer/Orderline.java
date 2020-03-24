@@ -18,6 +18,14 @@ public class Orderline {
         this.bottom = bottom;
     }
 
+    public Orderline (int ordersId, String bottom, String topping, int quantity, double sum){
+        this.ordersId = ordersId;
+        this.bottom = bottom;
+        this.topping = topping;
+        this.quantity = quantity;
+        this.sum = sum;
+    }
+
     public int getOrderlineId() { return orderlineId; }
 
     public void setOrderlineId(int orderlineId) { this.orderlineId = orderlineId; }

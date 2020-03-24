@@ -28,6 +28,8 @@ abstract class Command {
         commands.put("deleteOrderline", new DeleteOrderline());
         commands.put("orderCupcake", new OrderCupcake());
         commands.put("logout", new Logout());
+        commands.put("deleteOrder", new DeleteOrder());
+        commands.put("updateOrderStatus", new UpdateOrderStatus());
     }
 
 

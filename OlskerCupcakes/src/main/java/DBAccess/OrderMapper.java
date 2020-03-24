@@ -156,7 +156,7 @@ public class OrderMapper {
                     "INNER JOIN orders o on u.users_id = o.users_id\n" +
                     "INNER JOIN orderline ol on o.orders_id = ol.orders_id\n" +
                     "GROUP BY o.orders_id\n" +
-                    "ORDER BY o.orders_id;";
+                    "ORDER BY o.status DESC, o.order_date DESC;";
             PreparedStatement ps = con.prepareStatement(SQL);
 
             ResultSet rs = ps.executeQuery();
@@ -180,4 +180,60 @@ public class OrderMapper {
         }
         return allOrders;
     }
+
+    public static List<Orderline> getOrderlines() throws SQLException {
+        List<Orderline> AllOrderlines = new ArrayList<>();
+
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT o.orders_id,b.name as bottom, t.name as topping, ol.quantity, ol.sum  FROM users u\n" +
+                    "INNER JOIN orders o on u.users_id = o.users_id\n" +
+                    "INNER JOIN orderline ol on o.orders_id = ol.orders_id\n" +
+                    "INNER JOIN topping t on ol.topping_id = t.topping_id\n" +
+                    "INNER JOIN bottom b on ol.bottom_id = b.bottom_id";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int paramOrderID = rs.getInt("orders_id");
+                String bottom = rs.getString("bottom");
+                String topping = rs.getString("topping");
+                int quantity = rs.getInt("quantity");
+                double sum = rs.getDouble("sum");
+
+                Orderline orderline = new Orderline(paramOrderID, bottom, topping, quantity, sum);
+                AllOrderlines.add(orderline);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new SQLException(ex.getMessage());
+        }
+        return AllOrderlines;
+    }
+
+    public static void deleteOrder(int orderID) throws LoginSampleException, SQLException {
+
+        try{
+            Connection con = Connector.connection();
+            String SQL = "DELETE FROM orders WHERE orders_id = ?;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderID);
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex ) {
+            throw new SQLException( ex.getMessage() );
+        }
+    }
+
+    public static void updateStatus(int orderID, String status) throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE orders SET status = ? WHERE orders_id = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setString(1, status);
+            ps.setInt(2, orderID);
+            ps.executeUpdate();
+
+        } catch ( SQLException | ClassNotFoundException ex ) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+    }
+
 }

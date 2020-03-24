@@ -26,14 +26,16 @@ public class Login extends Command {
         session.setAttribute("userId", user.getId());
         session.setAttribute( "user", user );
         session.setAttribute( "role", user.getRole() );
-        session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
+        session.setAttribute("email", email);
 
         List<Bottom> allBottoms = LogicFacade.getBottoms();
         List<Topping> allToppings = LogicFacade.getToppings();
         List<Orders> allOrders = LogicFacade.getAllOrders();
+        List<Orderline> allOrderlines = LogicFacade.getOrderlines();
         request.setAttribute("bottom", allBottoms);
         request.setAttribute("topping", allToppings);
         request.setAttribute("allOrders", allOrders);
+        request.setAttribute("AllOrderlines", allOrderlines);
 
         return user.getRole() + "page";
     }

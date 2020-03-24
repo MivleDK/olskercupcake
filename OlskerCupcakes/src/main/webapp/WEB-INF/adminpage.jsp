@@ -49,64 +49,46 @@
 
     <c:forEach var="order" items="${requestScope.allOrders}">
 
-    <tr>
+        <tr>
 
-        <td>${order.ordersId}</td>
-        <td>${order.ordersDate}</td>
-        <td>
-            <select class="custom-select" name="ordrestatus">
-                <option>${order.status}</option>
-                <option>Bestilt</option>
-                <option>Behandler</option>
-                <option>Afsluttet</option>
-            </select>
-        </td>
-        <td>${order.email}</td>
-        <td>${order.quantity}</td>
-        <td>${order.total} kr</td>
-        <td>
-            <form name="opdaterOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-                <input type="hidden" name="target" value="opdater">
-                <input type="hidden" name="opdaterOrdre" value="">
-                <input type="submit" class="btn btn-success btn-sm" value="Opdater"/>
-            </form>
-        </td>
-        <td>
+            <td>${order.ordersId}</td>
+            <td>${order.ordersDate}</td>
+            <td>
+                <form name="opdaterOrdre" id="opdaterOrdre_${order.ordersId}" action="FrontController" method="post" style="margin-bottom: 0px;">
+                    <input type="hidden" name="target" value="updateOrderStatus">
+                    <input type="hidden" name="opdaterOrdreID" value="${order.ordersId}">
+                    <select class="custom-select" name="ordrestatus">
+                        <option>${order.status}</option>
+                        <option>Bestilt</option>
+                        <option>Behandler</option>
+                        <option>Afsluttet</option>
+                    </select>
+                </form>
+            </td>
+            <td>${order.email}</td>
+            <td>${order.quantity}</td>
+            <td>${order.total} kr</td>
+            <td>
+                    <input type="submit" form="opdaterOrdre_${order.ordersId}" class="btn btn-success btn-sm" value="Opdater"/>
+            </td>
+            <td>
 
-            <button class="btn btn-success btn-sm" type="button" data-toggle="collapse" data-target="#collapse_${order.ordersId}" aria-expanded="false" aria-controls="collapseExample">
-                Vis ordre
-            </button>
+                <button class="btn btn-success btn-sm" type="button" data-toggle="collapse"
+                        data-target="#collapse_${order.ordersId}" aria-expanded="false" aria-controls="collapseExample">
+                    Vis ordre
+                </button>
 
-
-<!--
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Din ordre</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">-->
-
-                        <!--</div>
-                    </div>
-                </div>
-            </div>-->
-
-
-        </td>
-        <td>
-            <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
-                <input type="hidden" name="target" value="deleteOrder">
-                <input type="hidden" name="orderId" value="">
-                <input type="submit" class="btn btn-danger btn-sm" value="Slet"
-                       onclick="return confirm('Er du sikker på at du vil slette?')"/>
-            </form>
-        </td>
-    </tr>
-        <tr class="collapse" style="background-color: #ffffff"  id="collapse_${order.ordersId}">
+            </td>
+            <td>
+                <form name="sletOrdre" action="FrontController" method="post" style="margin-bottom: 0px;">
+                    <input type="hidden" name="target" value="deleteOrder">
+                    <input type="hidden" name="orderId" value="${order.ordersId}">
+                    <input type="submit" class="btn btn-danger btn-sm" value="Slet"
+                           onclick="return confirm('Er du sikker på at du vil slette?')"/>
+                </form>
+            </td>
+        </tr>
+        <tr class="collapse" style="background-color: #ffffff" id="collapse_${order.ordersId}">
             <td colspan="9">
                 <table class="table">
                     <thead>
@@ -119,25 +101,19 @@
                     </thead>
                     <tbody>
 
-                    <tr style="background-color: #ffffff">
-                        <td>Chokolade</td>
-                        <td>Vanilje</td>
-                        <td>3</td>
-                        <td>75 kr</td>
-                    </tr>
-                    <tr style="background-color: #ffffff">
-                        <td>Chokolade</td>
-                        <td>Vanilje</td>
-                        <td>3</td>
-                        <td>75 kr</td>
-                    </tr>
-                    <tr style="background-color: #ffffff">
-                        <td>Chokolade</td>
-                        <td>Vanilje</td>
-                        <td>3</td>
-                        <td>75 kr</td>
-                    </tr>
+                    <c:forEach var="orderLine" items="${requestScope.AllOrderlines}">
 
+                        <c:choose>
+                            <c:when test="${order.ordersId == orderLine.ordersId}">
+                                <tr style="background-color: #ffffff">
+                                    <td>${orderLine.bottom}</td>
+                                    <td>${orderLine.topping}</td>
+                                    <td>${orderLine.quantity}</td>
+                                    <td>${orderLine.sum} kr</td>
+                                </tr>
+                            </c:when>
+                        </c:choose>
+                    </c:forEach>
                     </tbody>
                 </table>
             </td>

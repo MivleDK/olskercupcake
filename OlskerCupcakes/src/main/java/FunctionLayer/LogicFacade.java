@@ -75,4 +75,17 @@ public class LogicFacade {
     public static List<Orders> getAllOrders() throws SQLException {
         return OrderMapper.getAllOrders();
     }
+
+    public static List<Orderline> getOrderlines() throws SQLException {
+        return OrderMapper.getOrderlines();
+    }
+
+    public static void deleteOrder(int orderID) throws LoginSampleException, SQLException {
+        OrderMapper.deleteOrder(orderID);
+    }
+
+    public static void updateStatus(int orderID, String status) throws LoginSampleException {
+        OrderMapper.updateStatus(orderID, status);
+    }
+
 }
