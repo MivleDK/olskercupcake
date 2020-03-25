@@ -9,7 +9,8 @@ participant Login
 participant Command
 participant FrontController
 participant httpServlet
-database UserMapper
+participant UserMapper
+database olskercupcakedb
 
 User -> index.jsp : email & password
 index.jsp -> Login
@@ -18,10 +19,10 @@ Command -> FrontController: processRequest()
 FrontController -> httpServlet:
 httpServlet -> UserMapper:
 
-UserMapper -> httpServlet: resultset
-httpServlet -> httpServlet: validate resultset
-httpServlet -> FrontController: OK
-FrontController -> customerpage.jsp: forward
+olskercupcakedb -> UserMapper: resultset
+UserMapper -> UserMapper: validate resultset
+UserMapper -> httpServlet: OK
+httpServlet -> customerpage.jsp: forward
 customerpage.jsp -> User: Welcome to Olsker's Cupcake
 
 @enduml
