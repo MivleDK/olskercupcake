@@ -1,7 +1,27 @@
 @startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+title "Login - Sequence Diagram"
+
+actor User
+boundary index.jsp
+boundary customerpage.jsp
+participant Login
+participant Command
+participant FrontController
+participant httpServlet
+database UserMapper
+
+User -> index.jsp : email & password
+index.jsp -> Login
+Login -> Command: execute()
+Command -> FrontController: processRequest()
+FrontController -> httpServlet:
+httpServlet -> UserMapper:
+
+UserMapper -> httpServlet: resultset
+httpServlet -> httpServlet: validate resultset
+httpServlet -> FrontController: OK
+FrontController -> customerpage.jsp: forward
+customerpage.jsp -> User: Welcome to Olsker's Cupcake
+
 @enduml
