@@ -4,29 +4,8 @@
 <%@include file="/includes/header.inc" %>
 
 <div class="row">
-    <div class="col-lg-6 text-left">
-        <!--<a href="FrontController?target=redirect&destination=adminpage">Ordreoversigt</a> |
-        <a href="FrontController?target=redirect&destination=kundekartotek">Kundekartotek</a>-->
-        <form action="FrontController" method="post">
-            <input type="hidden" name="target" id="target" value="adminpage">
-            <input type="submit" class="btn btn-link" value="Ordreoversigt"/>
-            |
-            <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link"
-                   value="Kundekartotek"/>
-            |
-            <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout"
-                    onclick="change(this.value)">Log ud
-            </button>
-        </form>
-    </div>
-    <div class="col-lg-6 text-right">
-        <p id="loginInf">Du er logget ind som ${sessionScope.email}</p>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-lg-12 text-center mt-5">
-        <h1 class="display-4" id="tagline">Adminside</h1>
+        <h1 class="display-4" id="tagline" style="padding-bottom: 25px;">Ordreoversigt</h1>
     </div>
 </div>
 
@@ -54,7 +33,8 @@
             <td>${order.ordersId}</td>
             <td>${order.ordersDate}</td>
             <td>
-                <form name="opdaterOrdre" id="opdaterOrdre_${order.ordersId}" action="FrontController" method="post" style="margin-bottom: 0px;">
+                <form name="opdaterOrdre" id="opdaterOrdre_${order.ordersId}" action="FrontController" method="post"
+                      style="margin-bottom: 0px;">
                     <input type="hidden" name="target" value="updateOrderStatus">
                     <input type="hidden" name="opdaterOrdreID" value="${order.ordersId}">
                     <select class="custom-select" name="ordrestatus">
@@ -69,7 +49,8 @@
             <td>${order.quantity}</td>
             <td>${order.total} kr</td>
             <td>
-                    <input type="submit" form="opdaterOrdre_${order.ordersId}" class="btn btn-success btn-sm" value="Opdater"/>
+                <input type="submit" form="opdaterOrdre_${order.ordersId}" class="btn btn-success btn-sm"
+                       value="Opdater"/>
             </td>
             <td>
 

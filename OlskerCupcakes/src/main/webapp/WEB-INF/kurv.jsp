@@ -5,34 +5,6 @@
 <%@include file="/includes/header.inc" %>
 
 <div class="row">
-    <div class="col-lg-6 text-left">
-        <%--        <a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |--%>
-        <%--        <a href="FrontController?target=redirect&destination=kurv">Gå til kurv</a> |--%>
-        <%--        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>--%>
-
-
-            <form action="FrontController" method="post">
-                <input type="hidden" name="target" id="target" value="customerpage">
-                <button type="submit" class="btn btn-link" value="customerpage">Gå til Shop</button>
-                |
-                <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Gå til kurv <span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
-                |
-                <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Gå til
-                    tidligere ordre
-                </button>
-                |
-                <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log
-                    ud
-                </button>
-            </form>
-
-    </div>
-    <div class="col-lg-6 text-right">
-        <p id="loginInf">Du er logget ind som ${sessionScope.email}</p>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-lg-12 text-center mt-5">
         <h1 class="display-4" id="tagline">Indkøbskurv</h1>
     </div>
