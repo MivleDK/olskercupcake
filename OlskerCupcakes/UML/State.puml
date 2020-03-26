@@ -17,6 +17,5 @@ state Configuring {
   state NewValuePreview {
      State1 -> State2
   }
-
 }
 @enduml

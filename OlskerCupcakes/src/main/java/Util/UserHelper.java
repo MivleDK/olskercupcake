@@ -3,8 +3,18 @@ package Util;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ * Genererer et nyt kodeord
+ * @author Per Kringelbach
+ */
+
 public class UserHelper {
 
+    /**
+     *
+     * @param length bestemmer længden af det genererede kodeord
+     * @return
+     */
     public static String randomCode(int length) {
         char[] chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 

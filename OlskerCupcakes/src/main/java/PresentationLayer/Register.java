@@ -11,20 +11,47 @@ import java.util.List;
 public class Register extends Command {
 
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException, SQLException {
-        String email = request.getParameter( "email" );
-        int phone = Integer.parseInt(request.getParameter( "phone" ));
-        String password1 = request.getParameter( "password1" );
-        String password2 = request.getParameter( "password2" );
-       if ( password1.equals( password2 ) ) {
-            User user = LogicFacade.createUser( email, phone, password1 );
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String password1 = request.getParameter("password1");
+        String password2 = request.getParameter("password2");
+
+        boolean emailFlag = false;
+        boolean phoneFlag = false;
+        boolean passwordFlag = false;
+        String errMessage;
+
+        if (!(email.equalsIgnoreCase(""))) {
+            emailFlag = true;
+        } else {
+            errMessage = "You must provide a valid Email";
+            throw new LoginSampleException(errMessage);
+        }
+
+        if (!(phone.length() < 8)) {
+            phoneFlag = true;
+        } else {
+            errMessage = "You must provide a valid phone number";
+            throw new LoginSampleException(errMessage);
+        }
+
+        if (!(password1.equals(password2) && password1 == null)) {
+            passwordFlag = true;
+        } else {
+            errMessage = "The two passwords did not match";
+            throw new LoginSampleException(errMessage);
+        }
+
+        if (emailFlag && phoneFlag && passwordFlag) {
+            User user = LogicFacade.createUser(email, Integer.parseInt(phone), password1);
             HttpSession session = request.getSession();
 
             session.setAttribute("userId", user.getId());
-            session.setAttribute("email",email);
+            session.setAttribute("email", email);
             session.setAttribute("phone", phone);
-            session.setAttribute( "user", user );
-            session.setAttribute( "role", user.getRole() );
+            session.setAttribute("user", user);
+            session.setAttribute("role", user.getRole());
 
             List<Bottom> allBottoms = LogicFacade.getBottoms();
             List<Topping> allToppings = LogicFacade.getToppings();
@@ -33,8 +60,7 @@ public class Register extends Command {
 
             return user.getRole() + "page";
         } else {
-            throw new LoginSampleException( "the two passwords did not match" );
+            throw new LoginSampleException("Something else went wrong - Contact IT!");
         }
     }
-
 }

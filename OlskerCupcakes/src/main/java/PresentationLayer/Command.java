@@ -8,10 +8,18 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Command Pattern designskabelon
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+ */
+
 abstract class Command {
 
     private static HashMap<String, Command> commands;
 
+    /**
+     * Initialiserer HashMap som refererer til samtlige .jsp sider og deres klasser
+     */
     private static void initCommands() {
         commands = new HashMap<>();
         commands.put("login", new Login());
@@ -32,7 +40,10 @@ abstract class Command {
         commands.put("updateOrderStatus", new UpdateOrderStatus());
     }
 
-
+    /**
+     * @param request Henter en hidden value fra et hidden inputfelt med navnet "target" fra en form på en .jsp-side
+     * @return Returnerer value fra inputfeltet "target"
+     */
     static Command from(HttpServletRequest request) {
         String targetName = request.getParameter("target");
         if (commands == null) {
@@ -41,6 +52,15 @@ abstract class Command {
         return commands.getOrDefault(targetName, new UnknownCommand());   // unknowncommand er default.
     }
 
+    /**
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return Returnerer klassen med samme navn som value fra "target"
+     * @throws LoginSampleException
+     * @throws SQLException
+     * @throws ParseException
+     * @throws ClassNotFoundException
+     */
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
             throws LoginSampleException, SQLException, ParseException, ClassNotFoundException;
 
