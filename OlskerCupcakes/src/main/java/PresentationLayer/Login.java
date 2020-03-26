@@ -15,6 +15,14 @@ import java.util.List;
  */
 public class Login extends Command {
 
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws LoginSampleException
+     * @throws SQLException
+     */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException, SQLException {
         String email = request.getParameter( "email" );

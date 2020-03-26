@@ -13,6 +13,16 @@ import java.text.ParseException;
 import java.util.List;
 
 public class UpdateOrderStatus extends Command {
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws LoginSampleException
+     * @throws SQLException
+     * @throws ParseException
+     * @throws ClassNotFoundException
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ParseException, ClassNotFoundException {
 

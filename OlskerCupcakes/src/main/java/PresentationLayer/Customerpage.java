@@ -14,6 +14,14 @@ import java.util.List;
 import java.util.UUID;
 
 public class Customerpage extends Command {
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws NumberFormatException
+     * @throws SQLException
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NumberFormatException, SQLException {
         HttpSession session = request.getSession();

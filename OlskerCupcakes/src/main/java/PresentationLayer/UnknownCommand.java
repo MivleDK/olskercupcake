@@ -11,6 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class UnknownCommand extends Command {
 
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws LoginSampleException
+     */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
         String msg = "Unknown command. Contact IT";

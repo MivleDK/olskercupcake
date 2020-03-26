@@ -13,6 +13,14 @@ import java.util.List;
 import static Util.UserHelper.randomCode;
 
 public class ResetCode extends Command {
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws LoginSampleException
+     * @throws SQLException
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
         HttpSession session = request.getSession();

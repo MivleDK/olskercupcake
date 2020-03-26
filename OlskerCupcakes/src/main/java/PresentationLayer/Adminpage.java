@@ -11,6 +11,13 @@ import java.util.List;
 
 public class Adminpage extends Command {
 
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws SQLException
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 
@@ -29,8 +36,7 @@ public class Adminpage extends Command {
 
         request.setAttribute("allOrders", allOrders);
 
-
-        /**
+        /*
          * HENT ORDRERLINKER
          */
         List<Orderline> allOrderlines = (List<Orderline>) session.getAttribute("AllOrderlines");

@@ -10,6 +10,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DeleteOrderline extends Command {
+    /**
+     *
+     * @param request Anvender value fra inputfeltet "target"
+     * @param response Anvendes umiddelbart ikke
+     * @return
+     * @throws LoginSampleException
+     * @throws SQLException
+     */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
         HttpSession session = request.getSession();
@@ -19,7 +27,7 @@ public class DeleteOrderline extends Command {
         List<Basket> basket = (List<Basket>) session.getAttribute("basket");
 
 
-        /**
+        /*
          * Find ordrelinjes unikke ID og slet den hvis det findes.
          */
         for (int i = 0; i < basket.size(); i++) {
