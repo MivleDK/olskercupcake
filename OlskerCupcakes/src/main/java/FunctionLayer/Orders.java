@@ -1,4 +1,5 @@
 package FunctionLayer;
+
     /**
     * Håndterer ordre objekter
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
@@ -15,10 +16,10 @@ public class Orders {
 
     /**
      *
-     * @param ordersId
-     * @param userId
-     * @param ordersDate
-     * @param status
+     * @param ordersId Order ID
+     * @param userId User ID
+     * @param ordersDate Date of created order
+     * @param status Order status
      */
     public Orders (int ordersId, int userId, String ordersDate, String status) {
         this.ordersId = ordersId;
@@ -26,14 +27,15 @@ public class Orders {
         this.ordersDate = ordersDate;
         this.status = status;
     }
+
     /**
      *
-     * @param ordersId
-     * @param ordersDate
-     * @param status
-     * @param email
-     * @param quantity
-     * @param total
+     * @param ordersId Order ID
+     * @param ordersDate Date of created order
+     * @param status Order status
+     * @param email User email
+     * @param quantity Total quantity of cupcakes in order
+     * @param total Total som of orderlines in order
      */
     public Orders(int ordersId, String ordersDate, String status, String email, int quantity, double total){
         this.ordersId = ordersId;
@@ -45,17 +47,17 @@ public class Orders {
         this.total = total;
     }
 
-    public String getEmail() { return email;    }
+    public String getEmail() { return email; }
 
-    public void setEmail(String email) { this.email = email;    }
+    public void setEmail(String email) { this.email = email; }
 
-    public int getQuantity() { return quantity;     }
+    public int getQuantity() { return quantity; }
 
-    public void setQuantity(int quantity) { this.quantity = quantity;   }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
-    public double getTotal() { return total;    }
+    public double getTotal() { return total; }
 
-    public void setTotal(double total) { this.total = total;    }
+    public void setTotal(double total) { this.total = total; }
 
     public int getOrdersId() { return ordersId; }
 

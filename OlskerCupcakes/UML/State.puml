@@ -1,21 +1,19 @@
 @startuml
-scale 350 width
-[*] --> NotShooting
 
-state NotShooting {
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
-}
+Title Logging in
+State index.jsp
+State "Error index.jsp" as error
+State LoggedIn
 
-state Configuring {
-  [*] --> NewValueSelection
-  NewValueSelection --> NewValuePreview : EvNewValue
-  NewValuePreview --> NewValueSelection : EvNewValueRejected
-  NewValuePreview --> NewValueSelection : EvNewValueSaved
+note right of LoggedIn
+email and role
+stored in session
+end note
 
-  state NewValuePreview {
-     State1 -> State2
-  }
-}
+[*] -> index.jsp
+index.jsp --> LoggedIn : user and pw OK
+error --> index.jsp : try-again
+index.jsp --> error : user or pw not OK
+LoggedIn --> [*]
+
 @enduml

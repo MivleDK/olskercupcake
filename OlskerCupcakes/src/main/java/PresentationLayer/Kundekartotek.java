@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
+
     /**
     * Viser alle registrerede kunder fra databasen
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
@@ -21,7 +22,7 @@ public class Kundekartotek extends Command {
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return kundekartotek
-     * @throws SQLException
+     * @throws SQLException Exception for SQL
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {

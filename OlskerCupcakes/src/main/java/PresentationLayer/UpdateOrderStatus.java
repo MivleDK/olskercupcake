@@ -11,20 +11,22 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
+
     /**
     * Opdaterer statussen på en ordre
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class UpdateOrderStatus extends Command {
+
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return adminpage
-     * @throws LoginSampleException
-     * @throws SQLException
-     * @throws ParseException
-     * @throws ClassNotFoundException
+     * @throws LoginSampleException Exception for login
+     * @throws SQLException Exception for SQL
+     * @throws ParseException Exception for error while parsing
+     * @throws ClassNotFoundException Exception when specified class cannot be found in the classpath
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ParseException, ClassNotFoundException {

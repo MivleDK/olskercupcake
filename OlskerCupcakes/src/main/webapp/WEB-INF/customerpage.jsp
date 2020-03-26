@@ -26,7 +26,7 @@
 
             <select class="custom-select" name="bottom" id="selectListeButtom">
                 <c:forEach var="element" items="${requestScope.bottom}">
-                    <option value="${element.id}"> ${element.name}</option>
+                    <option value="${element.id}">${element.name}</option>
                 </c:forEach>
             </select>
         </div>

@@ -15,7 +15,7 @@ public class UnknownCommand extends Command {
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return msg
-     * @throws LoginSampleException
+     * @throws LoginSampleException Exceptio for login
      */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {

@@ -7,18 +7,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
+
     /**
     * Tilføjer list of Basket til en ordre med ordrelinjer.
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class OrderCupcake extends Command {
+
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return kurv
-     * @throws LoginSampleException
-     * @throws SQLException
+     * @throws LoginSampleException Exception for login
+     * @throws SQLException Exception for SQL
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
@@ -50,6 +52,7 @@ public class OrderCupcake extends Command {
             request.setAttribute("besked", "Der er ingen varer i din kurv?");
             return "kurv";
         }
+
         // Empty basket
         basket.clear();
         request.setAttribute("besked", "Tak for din ordre");

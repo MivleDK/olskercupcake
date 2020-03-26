@@ -10,19 +10,18 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-
-        /**
-        * Tilføj kredit til en kundekonto
-
-         * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
-        */
+    /**
+    * Tilføj kredit til en kundekonto
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 public class AddCredit extends Command {
+
     /**
      * @param request  Anvendes til get og set operationer på .jsp sider.
      * @param response Anvendes ikke
      * @return kundekartoteksside
-     * @throws LoginSampleException
-     * @throws SQLException
+     * @throws LoginSampleException Exception for login
+     * @throws SQLException Exception for SQL
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {

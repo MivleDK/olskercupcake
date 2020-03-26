@@ -14,15 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Alt SQL til bruger håndtering
- * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
- */
+    /**
+    * Alt SQL til bruger håndtering
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 public class UserMapper {
+
     /**
      *
-     * @param user
-     * @throws LoginSampleException
+     * @param user User object
+     * @throws LoginSampleException Exception for login
      */
     public static void createUser( User user ) throws LoginSampleException {
         try {
@@ -45,10 +46,10 @@ public class UserMapper {
 
     /**
      *
-     * @param email
-     * @param password
+     * @param email User email
+     * @param password User password
      * @return user objekt
-     * @throws LoginSampleException
+     * @throws LoginSampleException Exception for login
      */
     public static User login( String email, String password ) throws LoginSampleException {
         try {
@@ -75,8 +76,8 @@ public class UserMapper {
 
     /**
      *
-     * @param email
-     * @throws LoginSampleException
+     * @param email User email
+     * @throws LoginSampleException Exception for login
      */
     public static void deleteUser( String email ) throws LoginSampleException {
         try {
@@ -92,9 +93,9 @@ public class UserMapper {
 
     /**
      *
-     * @param email
-     * @param credit
-     * @throws LoginSampleException
+     * @param email User email
+     * @param credit User credit
+     * @throws LoginSampleException Exception for login
      */
     public static void updateCredit(String email, String credit) throws LoginSampleException {
         try {
@@ -113,7 +114,7 @@ public class UserMapper {
     /**
      *
      * @return list of User
-     * @throws SQLException
+     * @throws SQLException Exception for SQL
      */
     public static List<User> viewCustomer() throws SQLException {
         List<User> allUsers = new ArrayList<>();
@@ -139,9 +140,9 @@ public class UserMapper {
 
     /**
      *
-     * @param id
-     * @param newCode
-     * @throws LoginSampleException
+     * @param id User ID
+     * @param newCode New password
+     * @throws LoginSampleException Exception for login
      */
     public static void resetCode(int id, String newCode) throws LoginSampleException {
         try {

@@ -12,20 +12,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-        /**
-        * Tilføjer orderline til list basket
-        * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
-        */
 
-public class Customerpage extends Command {
     /**
-     *
-     * @param request Anvender value fra inputfeltet "target"
-     * @param response Anvendes umiddelbart ikke
-     * @return customerpage
-     * @throws NumberFormatException
-     * @throws SQLException
-     */
+    * Tilføjer orderline til list basket
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
+public class Customerpage extends Command {
+
+    /**
+    *
+    * @param request Anvender value fra inputfeltet "target"
+    * @param response Anvendes umiddelbart ikke
+    * @return customerpage
+    * @throws NumberFormatException Exception that might be thrown when you try to convert a String into a number
+    * @throws SQLException Exception for SQL
+    */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws NumberFormatException, SQLException {
         HttpSession session = request.getSession();

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
+
     /**
     * opretter en ny kunde i databasen
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
@@ -18,8 +19,8 @@ public class Register extends Command {
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return returnerer en bruger til kundesiden
-     * @throws LoginSampleException
-     * @throws SQLException
+     * @throws LoginSampleException Exception for login
+     * @throws SQLException Exception for SQL
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {

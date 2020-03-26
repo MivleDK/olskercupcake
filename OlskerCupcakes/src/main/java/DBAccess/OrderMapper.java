@@ -9,11 +9,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
     /**
     * Alt SQL til ordrehåndtering
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class OrderMapper {
+
         /**
          *
          * @param userId userID for den enkelte user
@@ -43,7 +45,7 @@ public class OrderMapper {
          * @param totalPrice Total price of the order
          * @param toppingId ID number for the specific topping
          * @param bottomId ID number for the specific bottom
-         * @throws LoginSampleException
+         * @throws LoginSampleException Exception for login
          */
     public static void createOrderLine(int orderId, int quantity, double totalPrice, int toppingId, int bottomId) throws LoginSampleException {
         try {
@@ -65,7 +67,7 @@ public class OrderMapper {
          *
          * @param userId user id for the specific user
          * @param sumTotal the amount of money the users wallet is updated with
-         * @throws LoginSampleException
+         * @throws LoginSampleException Exception for login
          */
     public static void updateUserCredit(int userId, double sumTotal) throws LoginSampleException {
         try {
@@ -258,7 +260,7 @@ public class OrderMapper {
          *
          * @param orderID ID for the specific order
          * @throws LoginSampleException An exception that provides information on a login error
-         * @throws SQLException
+         * @throws SQLException An exception that provides information on a database access error or other errors
          */
     public static void deleteOrder(int orderID) throws LoginSampleException, SQLException {
         try{

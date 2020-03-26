@@ -9,18 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
+
     /**
     * Sletter en user fra databasen
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class DeleteUser extends Command {
+
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return kundekartotek
-     * @throws LoginSampleException
-     * @throws SQLException
+     * @throws LoginSampleException Exception for login
+     * @throws SQLException Exception for SQL
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {

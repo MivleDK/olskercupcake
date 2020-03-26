@@ -16,13 +16,13 @@ public class Basket {
 
     /**
      *
-     * @param lineId
-     * @param bottomId
-     * @param toppingId
-     * @param bottom
-     * @param topping
-     * @param amount
-     * @param totalPrice
+     * @param lineId Uniq ID for orderline
+     * @param bottomId ID from bottom
+     * @param toppingId ID from topping
+     * @param bottom Bottom name
+     * @param topping Topping name
+     * @param amount Amount of same cupcake for orderline
+     * @param totalPrice Total price for orderline
      */
     public Basket (String lineId,int bottomId,int toppingId,String bottom, String topping, int amount, double totalPrice) {
         this.lineId = lineId;

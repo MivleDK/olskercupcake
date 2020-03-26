@@ -5,9 +5,10 @@ package FunctionLayer;
  * @author kasper
  */
 public class LoginSampleException extends Exception {
+
     /**
      *
-     * @param msg
+     * @param msg Message for login exception
      */
     public LoginSampleException(String msg) {
         super(msg);

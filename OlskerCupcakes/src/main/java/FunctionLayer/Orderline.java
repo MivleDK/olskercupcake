@@ -1,4 +1,5 @@
 package FunctionLayer;
+
     /**
     * hånterer ordrelinje objekter
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
@@ -14,12 +15,12 @@ public class Orderline {
 
         /**
          *
-         * @param orderlineId
-         * @param ordersId
-         * @param quantity
-         * @param sum
-         * @param topping
-         * @param bottom
+         * @param orderlineId Orderline ID
+         * @param ordersId Order ID
+         * @param quantity Quantity of cupcake for orderline
+         * @param sum Total sum for orderline
+         * @param topping Topping name
+         * @param bottom Bottom name
          */
     public Orderline (int orderlineId, int ordersId, int quantity, double sum, String topping, String bottom) {
         this.orderlineId = orderlineId;
@@ -32,11 +33,11 @@ public class Orderline {
 
         /**
          *
-         * @param ordersId
-         * @param bottom
-         * @param topping
-         * @param quantity
-         * @param sum
+         * @param ordersId Order ID
+         * @param bottom Bottom name
+         * @param topping Topping name
+         * @param quantity Quantity of cupcake for orderline
+         * @param sum Total sum for orderline
          */
     public Orderline (int ordersId, String bottom, String topping, int quantity, double sum){
         this.ordersId = ordersId;

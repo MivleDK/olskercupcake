@@ -15,7 +15,7 @@ public class User {
 
     /**
      * delete user
-     * @param email
+     * @param email User email
      */
     public User(String email) {
         this.email = email;
@@ -23,9 +23,9 @@ public class User {
 
     /**
      * Login
-     * @param email
-     * @param password
-     * @param role
+     * @param email User email
+     * @param password User password
+     * @param role User role
      */
     public User(String email, String password, String role ) {
         this.email = email;
@@ -35,10 +35,10 @@ public class User {
 
     /**
      * Create user
-     * @param email
-     * @param phone
-     * @param password
-     * @param role
+     * @param email User email
+     * @param phone User phone number
+     * @param password User password
+     * @param role User role
      */
     public User(String email, int phone, String password, String role ) {
         this.email = email;
@@ -49,11 +49,10 @@ public class User {
 
     /**
      * View customerList
-     *
-     * @param id
-     * @param email
-     * @param phone
-     * @param credit
+     * @param id User ID
+     * @param email User email
+     * @param phone User phone number
+     * @param credit User credit
      */
     public User(int id, String email, int phone, double credit ) {
         this.id = id;

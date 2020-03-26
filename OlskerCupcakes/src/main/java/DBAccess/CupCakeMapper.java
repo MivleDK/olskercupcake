@@ -8,10 +8,10 @@ import FunctionLayer.User;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-/**
- * henter Topping og bottoms fra databasen til dropdown menu
- * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
- */
+    /**
+    * henter Topping og bottoms fra databasen til dropdown menu
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 
 public class CupCakeMapper {
     /**

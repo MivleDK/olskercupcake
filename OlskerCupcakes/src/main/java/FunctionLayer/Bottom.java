@@ -11,9 +11,9 @@ public class Bottom {
 
     /**
      *
-     * @param id
-     * @param name
-     * @param price
+     * @param id Bottom ID
+     * @param name Bottom name
+     * @param price Bottom price
      */
     public Bottom(int id, String name, double price) {
 
