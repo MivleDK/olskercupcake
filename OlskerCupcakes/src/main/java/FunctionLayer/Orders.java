@@ -1,5 +1,8 @@
 package FunctionLayer;
-
+    /**
+    * Håndterer ordre objekter
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 public class Orders {
 
     private int ordersId;
@@ -10,37 +13,28 @@ public class Orders {
     private int quantity;
     private double total;
 
+    /**
+     *
+     * @param ordersId
+     * @param userId
+     * @param ordersDate
+     * @param status
+     */
     public Orders (int ordersId, int userId, String ordersDate, String status) {
         this.ordersId = ordersId;
         this.userId = userId;
         this.ordersDate = ordersDate;
         this.status = status;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
+    /**
+     *
+     * @param ordersId
+     * @param ordersDate
+     * @param status
+     * @param email
+     * @param quantity
+     * @param total
+     */
     public Orders(int ordersId, String ordersDate, String status, String email, int quantity, double total){
         this.ordersId = ordersId;
         this.userId = userId;
@@ -50,6 +44,18 @@ public class Orders {
         this.quantity = quantity;
         this.total = total;
     }
+
+    public String getEmail() { return email;    }
+
+    public void setEmail(String email) { this.email = email;    }
+
+    public int getQuantity() { return quantity;     }
+
+    public void setQuantity(int quantity) { this.quantity = quantity;   }
+
+    public double getTotal() { return total;    }
+
+    public void setTotal(double total) { this.total = total;    }
 
     public int getOrdersId() { return ordersId; }
 

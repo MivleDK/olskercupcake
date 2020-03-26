@@ -1,8 +1,8 @@
 package FunctionLayer;
 
 /**
- * The purpose of User is to...
- * @author kasper
+ * håndterer user objekter
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class User {
 
@@ -15,6 +15,7 @@ public class User {
 
     /**
      * delete user
+     * @param email
      */
     public User(String email) {
         this.email = email;
@@ -22,6 +23,9 @@ public class User {
 
     /**
      * Login
+     * @param email
+     * @param password
+     * @param role
      */
     public User(String email, String password, String role ) {
         this.email = email;
@@ -31,6 +35,10 @@ public class User {
 
     /**
      * Create user
+     * @param email
+     * @param phone
+     * @param password
+     * @param role
      */
     public User(String email, int phone, String password, String role ) {
         this.email = email;
@@ -41,6 +49,11 @@ public class User {
 
     /**
      * View customerList
+     *
+     * @param id
+     * @param email
+     * @param phone
+     * @param credit
      */
     public User(int id, String email, int phone, double credit ) {
         this.id = id;

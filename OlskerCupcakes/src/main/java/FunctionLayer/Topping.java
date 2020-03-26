@@ -1,11 +1,20 @@
 package FunctionLayer;
-
+/**
+ * håndtere topping objekt
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+ */
 public class Topping {
 
     private int id;
     private String name;
     private double price;
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param price
+     */
     public Topping(int id, String name, double price) {
 
         this.id = id;

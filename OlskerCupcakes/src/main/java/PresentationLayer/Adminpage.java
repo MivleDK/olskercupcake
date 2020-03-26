@@ -8,14 +8,18 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
-
+        /**
+         **Adminpage
+         * Oversigt over alle ordrer, opdater ordre, vis ordre og status samt slette ordre
+        * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+        */
 public class Adminpage extends Command {
 
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
-     * @return
+     * @return adminpage
      * @throws SQLException
      */
     @Override

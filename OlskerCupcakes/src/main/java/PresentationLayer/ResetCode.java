@@ -11,13 +11,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 import static Util.UserHelper.randomCode;
-
+    /**
+    * nulstiller password for en bruger til et RNG
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 public class ResetCode extends Command {
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
-     * @return
+     * @return kundekartotek
      * @throws LoginSampleException
      * @throws SQLException
      */

@@ -15,12 +15,15 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- The purpose of UserMapper is to...
-
- @author kasper
+ * Alt SQL til bruger håndtering
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class UserMapper {
-
+    /**
+     *
+     * @param user
+     * @throws LoginSampleException
+     */
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -40,6 +43,13 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @param password
+     * @return user objekt
+     * @throws LoginSampleException
+     */
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -63,6 +73,11 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @throws LoginSampleException
+     */
     public static void deleteUser( String email ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -75,6 +90,12 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @param email
+     * @param credit
+     * @throws LoginSampleException
+     */
     public static void updateCredit(String email, String credit) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -89,6 +110,11 @@ public class UserMapper {
         }
     }
 
+    /**
+     *
+     * @return list of User
+     * @throws SQLException
+     */
     public static List<User> viewCustomer() throws SQLException {
         List<User> allUsers = new ArrayList<>();
         try {
@@ -111,6 +137,12 @@ public class UserMapper {
         return allUsers;
     }
 
+    /**
+     *
+     * @param id
+     * @param newCode
+     * @throws LoginSampleException
+     */
     public static void resetCode(int id, String newCode) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

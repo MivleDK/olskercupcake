@@ -4,8 +4,8 @@ import java.util.Locale;
 import java.util.Random;
 
 /**
- * Genererer et nyt kodeord
- * @author Per Kringelbach
+ * Genererer et RNG password
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 
 public class UserHelper {
@@ -13,7 +13,7 @@ public class UserHelper {
     /**
      *
      * @param length bestemmer længden af det genererede kodeord
-     * @return
+     * @return randomSTR
      */
     public static String randomCode(int length) {
         char[] chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();

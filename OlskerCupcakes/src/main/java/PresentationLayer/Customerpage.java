@@ -12,13 +12,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+        /**
+        * Tilføjer orderline til list basket
+        * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+        */
 
 public class Customerpage extends Command {
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
-     * @return
+     * @return customerpage
      * @throws NumberFormatException
      * @throws SQLException
      */

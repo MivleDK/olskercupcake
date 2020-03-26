@@ -8,10 +8,10 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Command Pattern designskabelon
- * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
- */
+        /**
+        * Command Pattern designskabelon
+        * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+        */
 
 abstract class Command {
 
@@ -20,6 +20,7 @@ abstract class Command {
     /**
      * Initialiserer HashMap som refererer til samtlige .jsp sider og deres klasser
      */
+
     private static void initCommands() {
         commands = new HashMap<>();
         commands.put("login", new Login());

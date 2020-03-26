@@ -1,5 +1,9 @@
 package FunctionLayer;
 
+/**
+ * Håndterer kurv objekt
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+ */
 public class Basket {
 
     private int bottomId;
@@ -10,6 +14,16 @@ public class Basket {
     private double totalPrice;
     private String lineId;
 
+    /**
+     *
+     * @param lineId
+     * @param bottomId
+     * @param toppingId
+     * @param bottom
+     * @param topping
+     * @param amount
+     * @param totalPrice
+     */
     public Basket (String lineId,int bottomId,int toppingId,String bottom, String topping, int amount, double totalPrice) {
         this.lineId = lineId;
         this.bottomId = bottomId;

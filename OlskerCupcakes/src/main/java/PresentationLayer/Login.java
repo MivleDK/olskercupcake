@@ -8,10 +8,11 @@ import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- The purpose of Login is to...
 
- @author kasper
+
+ /**
+ * The purpose of Login is to...make waffles
+ * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class Login extends Command {
 
@@ -19,7 +20,7 @@ public class Login extends Command {
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
-     * @return
+     * @return returnerer en side afhængigt af user role (admin/kunde)
      * @throws LoginSampleException
      * @throws SQLException
      */

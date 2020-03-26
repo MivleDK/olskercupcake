@@ -9,9 +9,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
+    /**
+    * Alt SQL til ordrehåndtering
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 public class OrderMapper {
-
+        /**
+         *
+         * @param userId userID for den enkelte user
+         * @return orderId
+         * @throws LoginSampleException An error given when the login is faulty
+         */
     public static int createOrder(int userId) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -28,6 +36,15 @@ public class OrderMapper {
         }
     }
 
+        /**
+         *
+         * @param orderId ID for the specific order
+         * @param quantity Amount of the specific cupcake
+         * @param totalPrice Total price of the order
+         * @param toppingId ID number for the specific topping
+         * @param bottomId ID number for the specific bottom
+         * @throws LoginSampleException
+         */
     public static void createOrderLine(int orderId, int quantity, double totalPrice, int toppingId, int bottomId) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -44,6 +61,12 @@ public class OrderMapper {
         }
     }
 
+        /**
+         *
+         * @param userId user id for the specific user
+         * @param sumTotal the amount of money the users wallet is updated with
+         * @throws LoginSampleException
+         */
     public static void updateUserCredit(int userId, double sumTotal) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -57,6 +80,12 @@ public class OrderMapper {
         }
     }
 
+        /**
+         *
+         * @param userId user id for the specific user
+         * @return list of oldOrders
+         * @throws SQLException An exception that provides information on a database access error or other errors
+         */
     public static List<Orders> getOldOrders(int userId) throws SQLException {
         List<Orders> oldOrders = new ArrayList<>();
         try {
@@ -113,6 +142,12 @@ public class OrderMapper {
         return oldOrderLine;
     }
 
+        /**
+         *
+         * @param userId user id for the specific user
+         * @return list of getPreviousOrders
+         * @throws SQLException An exception that provides information on a database access error or other errors
+         */
     public static List<PreviousOrders> getPreviousOrders(int userId) throws SQLException {
         List<PreviousOrders> getPreviousOrders = new ArrayList<>();
         try {
@@ -147,6 +182,11 @@ public class OrderMapper {
         return getPreviousOrders;
     }
 
+        /**
+         *
+         * @return list of getAllOrders
+         * @throws SQLException An exception that provides information on a database access error or other errors
+         */
     public static List<Orders> getAllOrders() throws SQLException {
         List<Orders> allOrders = new ArrayList<>();
 
@@ -181,6 +221,11 @@ public class OrderMapper {
         return allOrders;
     }
 
+        /**
+         *
+         * @return list of GetOrderlines
+         * @throws SQLException An exception that provides information on a database access error or other errors
+         */
     public static List<Orderline> getOrderlines() throws SQLException {
         List<Orderline> AllOrderlines = new ArrayList<>();
 
@@ -209,8 +254,13 @@ public class OrderMapper {
         return AllOrderlines;
     }
 
+        /**
+         *
+         * @param orderID ID for the specific order
+         * @throws LoginSampleException An exception that provides information on a login error
+         * @throws SQLException
+         */
     public static void deleteOrder(int orderID) throws LoginSampleException, SQLException {
-
         try{
             Connection con = Connector.connection();
             String SQL = "DELETE FROM orders WHERE orders_id = ?;";
@@ -222,6 +272,12 @@ public class OrderMapper {
         }
     }
 
+        /**
+         *
+         * @param orderID  ID for the specific order
+         * @param status the status of the order
+         * @throws LoginSampleException An exception that provides information on a login error
+         */
     public static void updateStatus(int orderID, String status) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

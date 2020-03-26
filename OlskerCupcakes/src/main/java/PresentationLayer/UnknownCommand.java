@@ -4,18 +4,17 @@ import FunctionLayer.LoginSampleException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- The purpose of UnknownCommand is to...
-
- @author kasper
- */
+    /**
+    The purpose of UnknownCommand is to...
+    @author kasper
+    */
 public class UnknownCommand extends Command {
 
     /**
      *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
-     * @return
+     * @return msg
      * @throws LoginSampleException
      */
     @Override
