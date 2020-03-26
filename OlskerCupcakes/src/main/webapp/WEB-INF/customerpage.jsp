@@ -15,7 +15,6 @@
     <div class="col-lg-12 text-center">
         <h5>Her kan du bygge din egen cupcake</h5>
     </div>
-
 </div>
 <hr/>
 
