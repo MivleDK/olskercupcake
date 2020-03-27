@@ -1,0 +1,28 @@
+@startuml
+
+title "Login - Sequence Diagram"
+
+actor User
+boundary index.jsp
+boundary customerpage.jsp
+participant Login
+participant Command
+participant FrontController
+participant httpServlet
+participant UserMapper
+database olskercupcakedb
+
+User -> index.jsp : email & password
+index.jsp -> Login
+Login -> Command: execute()
+Command -> FrontController: processRequest()
+FrontController -> httpServlet:
+httpServlet -> UserMapper:
+
+olskercupcakedb -> UserMapper: resultset
+UserMapper -> UserMapper: validate resultset
+UserMapper -> httpServlet: OK
+httpServlet -> customerpage.jsp: forward
+customerpage.jsp -> User: Welcome to Olsker's Cupcake
+
+@enduml

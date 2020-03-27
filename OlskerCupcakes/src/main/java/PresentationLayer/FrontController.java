@@ -7,16 +7,18 @@ package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
-
- @author kasper
- */
+    /**
+    * Modtager request fra forms og kalder tilhørende klasser
+    * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
+    */
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )
 public class FrontController extends HttpServlet {
 
@@ -34,8 +36,11 @@ public class FrontController extends HttpServlet {
         try {
             Command action = Command.from( request );
             String view = action.execute( request, response );
+            if(view.equals("index")){
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
             request.getRequestDispatcher( "/WEB-INF/" + view + ".jsp" ).forward( request, response );
-        } catch ( LoginSampleException ex ) {
+        } catch (LoginSampleException | SQLException | ParseException | ClassNotFoundException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "index.jsp" ).forward( request, response );
         }

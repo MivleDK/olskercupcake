@@ -1,0 +1,333 @@
+@startuml
+left to right direction
+title Cupcakeshop - Class Diagram
+scale 2/1
+
+package "Util" #e1eb75 {
+Class UserHelper
+UserHelper --|> "ResetCode"
+}
+
+package "PresentationLayer" #78d683 {
+
+    HttpServlet <|-- FrontController
+    FrontController --|> Command
+    Command <|--|> "//Command//"
+    LogicFacade --|> "Til LogicFacade"
+
+    package "//Command//" {
+    Class  Kurv
+    Class  Redirect
+    Class  UnknownCommand
+    Class  Logout
+        package "Til LogicFacade"{
+        Class  AddCredit
+        Class  Adminpage
+        Class  Customerpage
+        Class  DeleteOrder
+        Class  DeleteOrderline
+        Class  DeleteUser
+        Class  Kundekartotek
+        Class Login
+        Class  OrderCupcake
+        Class  Register
+        Class  TidligereOrdre
+        Class  UpdateOrderStatus
+            package "ResetCode"{
+                Class  ResetCode
+            }
+        }
+    }
+}
+
+package "FunctionLayer" #96c4fa {
+
+    package "LogicFacade"{
+    Class LogicFacade
+    }
+
+    package "LogicFacade Metodeklasser (S.O.C)"{
+
+        package "OrderClasses"  {
+            Class Basket
+            Class LoginSampleException
+            Class Orderline
+            Class Orders
+            Class PreviousOrders
+        }
+
+        package "CupCakeClasses" {
+        Class Bottom
+        Class Topping
+        }
+
+        package "UserClasses" {
+        Class User
+        User "1" <|--|> "*" Orders
+        Orders "1" <|--|> "*" Orderline
+        Orders "1" <|--|> "1" Basket
+        PreviousOrders "1" <|--|> "*" Orderline
+        PreviousOrders "1" <|--|> "1" Basket
+        "CupCakeClasses" "1" <|--|> "*" Orderline
+        }
+    }
+    "LogicFacade" <|--|> "LogicFacade Metodeklasser (S.O.C)"
+    "LogicFacade" <|--|> "DBAccess"
+
+    Exception <-- LoginSampleException
+}
+
+package "DBAccess" #fa9696 {
+    package "Datamappers" {
+        CupCakeMapper  "0" <|--|> "0" "CupCakeClasses"
+        OrderMapper <|--|> "OrderClasses"
+        UserMapper <|--|> "UserClasses"
+    }
+Connector <|--|> "Datamappers"
+
+}
+
+/'##########################
+ Util
+########################## '/
+
+Class UserHelper{
+{static}+String randomCode(int length)
+}
+
+/'##########################
+ DBAccess
+########################## '/
+
+Class Connector{
+{static}-String URL
+{static}-String USERNAME
+{static}-String PASSWORD
+{static}-Connection singleton
+{static}+void setConnection(con)
+{static}+Connection connection()
+}
+
+Class CupCakeMapper{
+{static}+List<Bottom> getBottoms()
+{static}+List<Topping> getToppings()
+}
+
+Class OrderMapper{
+{static}+int createOrder(userId)
+{static}+void createOrderLine(orderId, quantity, totalPrice, toppingId, bottomId)
+{static}+void updateUserCredit(userId, sumTotal)
+{static}+List<Orders> getOldOrders(userId)
+{static}+List<Orderline> getOldOrderlines(ordersId)
+{static}+List<PreviousOrders> getPreviousOrders(userId)
+{static}+List<Orders> getAllOrders()
+{static}+List<Orderline> getOrderlines()
+{static}+void deleteOrder(orderID)
+{static}+void updateStatus(orderID, status)
+}
+
+Class UserMapper{
+{static}+void createUser(user)
+{static}+User login(email, password)
+{static}+void deleteUser(email)
+{static}+void updateCredit(email, credit)
+{static}+List<User> viewCustomer()
+{static}+void resetCode(id, newCode)
+}
+
+
+/'##########################
+ FUNCTIONLAYER
+########################## '/
+
+Class Basket{
+-int bottomId
+-int toppingId
+-String bottom
+-String topping
+-int amount
+-double totalPrice
+-String lineId
++Basket(lineId, bottomId, toppingId, bottom, topping, amount, totalPrice)
++int getBottomId()
+}
+
+Class Bottom{
+-int id
+-String name
+-double price
++Bottom(id, name, price)
+}
+
+Class LogicFacade{
+{static}+User login(email, password)
+{static}+User createUser(email, phone, password)
+{static}+void deleteUser(email)
+{static}+void updateCredit(email, credit)
+{static}+List<User> viewCustomer()
+{static}+void resetCode(id, newCode)
+{static}+List<Bottom> getBottoms()
+{static}+List<Topping> getToppings()
+{static}+int createOrder(userId)
+{static}+void createOrderLine(userId, quantity, totalPrice, toppingId, BottomId)
+{static}+void updateUserCredit(userId, sumTotal)
+{static}+List<Orders> getOldOrders(ordersId)
+{static}+List<Orderline> getOldOrderlines(ordersId)
+{static}+List<PreviousOrders> getPreviousOrders(userId)
+{static}+List<Orders> getAllOrders()
+{static}+List<Orderline> getOrderlines()
+{static}+void deleteOrder(orderID)
+{static}+void updateStatus(orderID, status)
+}
+
+Class Exception{}
+
+Class LoginSampleException{
++LoginSampleException(msg)
+}
+
+Class Orderline{
+-int orderlineId
+-int ordersId
+-int quantity
+-double sum
+-String topping
+-String bottom
+Orderline(orderlineId, ordersId, quantity, sum, topping, bottom)
+Orderline(ordersId, bottom, topping, quantity, sum)
+}
+
+Class Orders{
+-int ordersId
+-int userId
+-String ordersDate
+-String status
+-String email
+-int quantity
+-double total
+Orders(ordersId, userId, ordersDate, status)
+Orders(ordersId, ordersDate, status, email, quantity, total)
+}
+
+Class PreviousOrders{
+-int ordersId
+-String ordersDate
+-String bottom
+-String topping
+-int quantity
+-double sum
+PreviousOrders(ordersId, ordersDate, bottom, topping, quantity, sum)
+}
+
+Class Topping{
+-int id
+-String name
+-double price
+Topping(id, name, price)
+}
+
+Class User{
+-int id
+-String email
+-int phone
+-double credit
+-String password
+-String role
+User(email)
+User(email, password, role)
+User(email, phone, password, role)
+User(id, email, phone, credit)
+}
+
+
+
+/'##########################
+ PRESENTATION LAYER
+########################## '/
+
+
+Class AddCredit{
+{abstract} +String execute()
+}
+
+Class Adminpage{
+{abstract}{abstract} +String execute()
+}
+
+class Command{
+ HashMap commands
+ -void initCommands()
+ +Command from()
+ {abstract} +String execute()
+}
+
+Class Customerpage{
+{abstract} +String execute()
+}
+
+Class DeleteOrder{
+{abstract} +String execute()
+}
+
+Class DeleteOrderline{
+{abstract} +String execute()
+}
+
+Class DeleteUser{
+{abstract} +String execute()
+}
+
+class FrontController{
+  #void processRequest()
+  #void doGet()
+  #void doPost()
+  +String getServletInfo()
+}
+
+Class Kundekartotek{
+{abstract} +String execute()
+}
+
+Class Kurv{
+{abstract} +String execute()
+}
+
+Class Login{
+{abstract} +String execute()
+}
+
+Class Logout{
+{abstract} +String execute()
+}
+
+Class OrderCupcake{
+{abstract} +String execute()
+}
+
+Class Redirect{
+{abstract} +String execute()
+}
+
+Class Register{
+{abstract} +String execute()
+}
+
+Class ResetCode{
+{abstract} +String execute()
+}
+
+Class TidligereOrdre{
+{abstract} +String execute()
+}
+
+Class UnknownCommand{
+{abstract} +String execute()
+}
+
+Class UpdateOrderStatus{
+{abstract} +String execute()
+}
+
+class HttpServlet
+footer Getters & Setters udeladt
+@enduml

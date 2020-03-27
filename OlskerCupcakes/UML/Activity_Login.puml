@@ -1,0 +1,12 @@
+@startuml
+title Login
+(*)  --> "check input"
+If "input valid?" then
+--> [Yes] "User is logged in"
+-right-> [           ] (*)
+else
+-right-> [No]"Show message:\n //Could not validate user// "
+-->[ending process](*)
+Endif
+
+@enduml

@@ -1,26 +1,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <link href="<c:url value="/includes/style.css" />" rel="stylesheet">
 <%@include file="/includes/header.inc" %>
-
-<div class="row">
-    <div class="col-lg-6 text-left">
-        <a href="FrontController?target=redirect&destination=customerpage">Gå til Shop</a> |
-        <a href="FrontController?target=redirect&destination=kurv">Gå til kurv</a> |
-        <a href="FrontController?target=redirect&destination=tidligereordre">Gå til tidligere ordre</a>
-    </div>
-    <div class="col-lg-6 text-right">
-        <p id="loginInf">Du er logget ind som ${sessionScope.email}</p>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-lg-12 text-center mt-5">
         <h1 class="display-4" id="tagline">Indkøbskurv</h1>
     </div>
 </div>
-
-<hr />
 
 <table class="table table-striped">
     <thead>
@@ -33,74 +21,50 @@
     </tr>
     </thead>
     <tbody>
+    <c:set var="sumTotal" value="${0}" />
+<c:forEach var="e" items="${sessionScope.basket}">
+    <c:set var="sumTotal" value="${sumTotal + e.totalPrice}" />
     <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
+        <td>${e.bottom}</td>
+        <td>${e.topping}</td>
+        <td>${e.amount}</td>
+        <td>${e.totalPrice} kr</td>
+
+        <td>
+            <form action="FrontController" method="post" style="margin-bottom: 0px;">
+                <input type="hidden" name="target" value="deleteOrderline">
+                <input type="hidden" name="uniqueId" value="${e.lineId}">
+                <button type="submit" class="btn btn-link" >Fjern</button>
+            </form>
+        </td>
     </tr>
+</c:forEach>
     <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td>Chokolade</td>
-        <td>Blueberry</td>
-        <td>12</td>
-        <td>75,00 kr</td>
-        <td><a href="#" class="danger">Fjern</a></td>
-    </tr>
-    <tr>
-        <td><p class="font-weight-bold">Samlet pris: </p></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>525,00 kr</td>
+        <td colspan="3">&nbsp;</td>
+        <td>${sumTotal} kr</td>
+        <td>&nbsp;</td>
     </tr>
     </tbody>
 </table>
+${requestScope.besked}
+<c:if test="${empty sessionScope.basket}">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h5>Din kurv er tom</h5>
+        </div>
+    </div>
+</c:if>
 
 
 <div class="row">
     <div class="col-lg-12 text-center">
-        <div class="form-group">
-            <form name="shop" action="FrontController" method="POST">
-                <input type="hidden" name="taget" value="bestil">
-                <input type="submit" class="btn-lg btn-success mt-4" value="Afgiv ordre" />
+        <!--<div class="form-group">-->
+            <form name="shop" action="FrontController" method="post">
+                <input type="hidden" name="target" value="orderCupcake">
+                <input type="hidden" name="sumTotal" value="${sumTotal}">
+                <button type="submit" class="btn-lg btn-success mt-4">Afgiv ordre</button>
             </form>
-        </div>
+        <!--</div>-->
     </div>
 </div>
 

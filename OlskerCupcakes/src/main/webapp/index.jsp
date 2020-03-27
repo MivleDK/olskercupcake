@@ -5,7 +5,9 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
 <%@include file="includes/header.inc" %>
+
 <link href="<c:url value="includes/style.css" />" rel="stylesheet">
 
 <div class="row">
@@ -56,7 +58,7 @@
                 <input type="email" class="form-control" id="OpretInputEmail1" placeholder="E-mail" name="email">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="Oprettelefon" name="telefonnummer" placeholder="Telefonnummer">
+                <input type="text" class="form-control" id="Oprettelefon" name="phone" placeholder="Telefonnummer">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password1" placeholder="Adgangskode">
@@ -73,41 +75,5 @@
 
     </div>
 </div>
-
-<%--        <table>--%>
-<%--            <tr><td>Login</td>--%>
-<%--                <td>--%>
-<%--                    <form name="login" action="FrontController" method="POST">--%>
-<%--                        <input type="hidden" name="target" value="login">--%>
-<%--                        Email:<br>--%>
-<%--                        <input type="text" name="email" value="someone@nowhere.com">--%>
-<%--                        <br>--%>
-<%--                        Password:<br>--%>
-<%--                        <input type="password" name="password" value="sesam">--%>
-<%--                        <br>--%>
-<%--                        <input type="submit" value="Submit">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
-
-<%--                <td>Or Register</td>--%>
-<%--                <td>--%>
-<%--                    <form name="register" action="FrontController" method="POST">--%>
-<%--                        <input type="hidden" name="target" value="register">--%>
-<%--                        Email:<br>--%>
-<%--                        <input type="text" name="email" value="someone@nowhere.com">--%>
-<%--                        <br>--%>
-<%--                        Password:<br>--%>
-<%--                        <input type="password" name="password1" value="sesam">--%>
-<%--                        <br>--%>
-<%--                        Retype Password:<br>--%>
-<%--                        <input type="password" name="password2" value="sesam">--%>
-<%--                        <br>--%>
-<%--                        <input type="submit" value="Submit">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--</table>--%>
-
-
 
 <%@include file="includes/footer.inc" %>

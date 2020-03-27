@@ -1,0 +1,24 @@
+@startuml
+
+Title Logging in
+State index.jsp
+State "Error index.jsp" as error
+State LoggedIn
+State adminpage.jsp
+State customerpage.jsp
+
+note right of LoggedIn
+email and role
+stored in session
+end note
+
+[*] -> index.jsp
+index.jsp --> LoggedIn : user and pw OK
+error --> index.jsp : try-again
+index.jsp --> error : user or pw not OK
+LoggedIn --> adminpage.jsp : if role = "admin"
+LoggedIn --> customerpage.jsp : if role ="customer"
+adminpage.jsp -->[*]
+customerpage.jsp -->[*]
+
+@enduml

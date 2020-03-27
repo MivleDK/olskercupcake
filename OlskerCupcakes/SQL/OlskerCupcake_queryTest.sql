@@ -64,6 +64,19 @@ INNER JOIN topping t on ol.topping_id = t.topping_id
 INNER JOIN bottom b on ol.bottom_id = b.bottom_id
 WHERE o.status = 'Afsluttet' AND u.users_id = '4';
 
+
+SELECT * FROM orders WHERE status = 'Afsluttet' AND users_id = '4';
+
+ -- -----------------------------------------
+-- All Previous orders from one customer order by ordes_id
+-- -----------------------------------------
+SELECT o.orders_id,b.name as bottom, t.name as topping, ol.quantity, ol.sum  FROM users u
+INNER JOIN orders o on u.users_id = o.users_id
+INNER JOIN orderline ol on o.orders_id = ol.orders_id
+INNER JOIN topping t on ol.topping_id = t.topping_id
+INNER JOIN bottom b on ol.bottom_id = b.bottom_id
+WHERE o.status = 'Afsluttet' AND o.orders_id = '4';
+
 -- -----------------------------------------
 -- order summary
 -- -----------------------------------------
