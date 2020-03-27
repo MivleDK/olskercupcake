@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
     /**
-    * Viser tidligere ordrer for aktive kunde
+    * Viser tidligere ordrer for den aktive kunde
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Tidligereordre extends Command {

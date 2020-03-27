@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.List;
 
 /**
- * front facing interface, masking more complex code.
+ * Bindeled imellem presentationlayer og DBAccess
  * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class LogicFacade {

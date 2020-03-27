@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
     /**
-    * opretter en ny kunde i databasen
+    * Opretter en ny kunde i databasen
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Register extends Command {

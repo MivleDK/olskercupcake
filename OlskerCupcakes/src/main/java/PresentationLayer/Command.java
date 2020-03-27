@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
     /**
-    * Command Pattern designskabelon
+    * Command Pattern designskabelon - Kaldes af FrontController
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 abstract class Command {

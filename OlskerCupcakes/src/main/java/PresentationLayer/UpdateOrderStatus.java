@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.util.List;
 
     /**
-    * Opdaterer statussen på en ordre
+    * Opdaterer status på en ordre
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class UpdateOrderStatus extends Command {

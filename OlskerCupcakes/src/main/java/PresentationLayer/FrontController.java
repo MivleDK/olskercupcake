@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
     /**
-    * Sender brugeren videre til andre sider
+    * Modtager request fra forms og kalder tilhørende klasser
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )

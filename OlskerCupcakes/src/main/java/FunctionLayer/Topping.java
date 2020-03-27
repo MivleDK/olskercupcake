@@ -1,7 +1,7 @@
 package FunctionLayer;
 
 /**
- * håndtere topping objekt
+ * Håndterer topping objekt
  * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class Topping {

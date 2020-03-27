@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
     /**
-    * Tilføjer list of Basket til en ordre med ordrelinjer.
+    * Tilføjer Basket list til en ordre med ordrelinjer.
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class OrderCupcake extends Command {

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
     /**
-    * Alt SQL til bruger håndtering
+    * SQL til brugerhåndtering
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class UserMapper {

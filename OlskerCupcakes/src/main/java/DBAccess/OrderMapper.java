@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
     /**
-    * Alt SQL til ordrehåndtering
+    * SQL ordrehåndtering imellem databasen og programmet
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class OrderMapper {

@@ -1,7 +1,7 @@
 package FunctionLayer;
 
 /**
- * håndterer user objekter
+ * Håndterer user objekter
  * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class User {

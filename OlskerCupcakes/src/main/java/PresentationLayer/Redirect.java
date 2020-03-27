@@ -6,7 +6,7 @@ import FunctionLayer.LoginSampleException;
         import javax.servlet.http.HttpServletResponse;
 
     /**
-    * redirecter til .jsp sider
+    * redirecter til .jsp sider (Ikke implementeret)
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Redirect extends Command{

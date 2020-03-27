@@ -1,7 +1,7 @@
 package FunctionLayer;
 
     /**
-    * hånterer ordrelinje objekter
+    * Hånterer ordrelinjeobjekter
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Orderline {

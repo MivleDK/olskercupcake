@@ -13,7 +13,7 @@ import java.util.List;
 import static Util.UserHelper.randomCode;
 
     /**
-    * nulstiller password for en bruger til et RNG
+    * Nulstiller password for en bruger til et RNG
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class ResetCode extends Command {

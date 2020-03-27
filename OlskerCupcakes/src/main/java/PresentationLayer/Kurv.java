@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
     /**
-    * returnere til kurv
+    * Returnerer til kurv
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Kurv extends Command {

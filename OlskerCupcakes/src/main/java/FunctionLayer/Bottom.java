@@ -1,6 +1,6 @@
 package FunctionLayer;
 /**
- * håndtere bottom objekt
+ * Håndterer bottom objekt
  * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
  */
 public class Bottom {

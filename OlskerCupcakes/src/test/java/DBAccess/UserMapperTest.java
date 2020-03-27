@@ -10,7 +10,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 
+/**
+ * Testeksempel (Ikke implementeret)
+ */
+
 public class UserMapperTest {
+
 //    Test date in the UsersTest table
 //    INSERT INTO `UsersTest` VALUES 
 //    (1,'jens@somewhere.com','jensen','customer'),

@@ -10,7 +10,6 @@ import java.text.ParseException;
 import java.util.List;
 
     /**
-    * Adminpage
     * Oversigt over alle ordrer, opdater ordre, vis ordre og status samt slette ordre
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */

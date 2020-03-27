@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
     /**
-    * Tilføjer orderline til list basket
+    * Tilføjer orderline til basket list
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Customerpage extends Command {

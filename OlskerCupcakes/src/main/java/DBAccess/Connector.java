@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
     /**
-    *The purpose of Connector is to...CONNECT TO THINGS
+    * Skaber forbindelsen til databasen
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 

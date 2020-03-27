@@ -9,13 +9,13 @@ import java.sql.SQLException;
 import java.util.List;
 
     /**
-    * The purpose of Login is to...make waffles
+    * Lader brugere logge ind. Initialiserer desuden kritiske objektlister til både admin og customer roles.
+    * Er nødvendig for, at siden efter login, ikke er tom for data.
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Login extends Command {
 
     /**
-     *
      * @param request Anvender value fra inputfeltet "target"
      * @param response Anvendes umiddelbart ikke
      * @return returnerer en side afhængigt af user role (admin/kunde)
@@ -46,5 +46,4 @@ public class Login extends Command {
 
         return user.getRole() + "page";
     }
-
 }

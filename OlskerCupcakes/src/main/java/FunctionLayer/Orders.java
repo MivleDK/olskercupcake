@@ -1,7 +1,7 @@
 package FunctionLayer;
 
     /**
-    * Håndterer ordre objekter
+    * Håndterer Ordreobjekter
     * @author Alexander Pihl, Mick Larsen, Morten Rahbek, Per Kringelbach
     */
 public class Orders {
