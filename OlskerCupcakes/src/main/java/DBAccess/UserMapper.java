@@ -28,7 +28,7 @@ public class UserMapper {
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, phone, password, role) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO users (email, phone, password, role) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getEmail() );
             ps.setInt(2,user.getPhone());
@@ -147,7 +147,7 @@ public class UserMapper {
     public static void resetCode(int id, String newCode) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE Users SET password = ? WHERE users_id = ?";
+            String SQL = "UPDATE users SET password = ? WHERE users_id = ?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, newCode);
             ps.setInt(2, id);
