@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>prejektSkabelon</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>OlskerCupcakes</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>prejektskabelon</name>
+    <name>OlskerCupcakes</name>
 
 
     <properties>

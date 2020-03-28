@@ -49,7 +49,7 @@ public class CupCakeMapper {
         List<Topping> allToppings = new ArrayList<>();
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM Topping ORDER BY topping_id";
+            String SQL = "SELECT * FROM topping ORDER BY topping_id";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
