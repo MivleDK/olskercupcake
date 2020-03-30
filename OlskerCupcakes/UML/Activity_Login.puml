@@ -1,5 +1,5 @@
 @startuml
-title Login
+title Login (Input validation)
 (*)  --> "check input"
 If "input valid?" then
 --> [Yes] "User is logged in"

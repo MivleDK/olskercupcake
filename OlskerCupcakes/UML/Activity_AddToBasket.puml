@@ -2,11 +2,12 @@
 title Add to basket
 (*)  --> "Choose Topping and Bottom"
 --> "Enter amount"
-If "Is amount > 0" then
--left-> [Yes] "Add cupcake to basket"
---> "Restart process"
-else
---> [No] "Restart process"
-Endif
+If "If amount > 0" then
+--> [Yes] "Add cupcake to basket"
 -->(*)
+else
+--> [No] "Error message"
+"Error message" -right-> Enter amount
+Endif
+
 @enduml

@@ -20,8 +20,10 @@ FrontController -> httpServlet:
 httpServlet -> UserMapper:
 
 olskercupcakedb -> UserMapper: resultset
-UserMapper -> UserMapper: validate resultset
-UserMapper -> httpServlet: OK
+UserMapper -> UserMapper: Validate resultset
+UserMapper -> index.jsp: Validate fail
+UserMapper -> httpServlet: Validate OK
+
 httpServlet -> customerpage.jsp: forward
 customerpage.jsp -> User: Welcome to Olsker's Cupcake
 

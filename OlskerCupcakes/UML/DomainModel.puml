@@ -1,0 +1,17 @@
+@startuml
+title DomainModel
+
+Customer "1" -- "1" Basket
+Basket "1" -- "*" Order
+Order "1" -- "*" OrderLines
+
+Customer "1" -- "*" PreviousOrders
+PreviousOrders "1" -- "*" OrderLines
+
+OrderLines "1" -- "*" CupcakeBottom
+OrderLines "1" -- "*" CupcakeTopping
+
+
+
+
+@enduml
