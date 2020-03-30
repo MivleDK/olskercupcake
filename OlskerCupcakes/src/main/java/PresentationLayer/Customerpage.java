@@ -81,6 +81,9 @@ public class Customerpage extends Command {
            double totalPrice = (bottomPrice + toppingPrice) * antal;
            Basket orderline = new Basket(lineId,bId,tId,bottomName, toppingName, antal, totalPrice);
            ((List<Basket>) session.getAttribute("basket")).add(orderline);
+       } else if(bottomId != -1 && toppingId != -1 && antal < 1){
+           request.setAttribute("besked", "Antal skal værer mindst 1");
+           return "customerpage";
        }
         return "customerpage";
     }

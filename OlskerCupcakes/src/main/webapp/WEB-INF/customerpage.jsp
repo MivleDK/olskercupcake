@@ -17,7 +17,11 @@
     </div>
 </div>
 <hr/>
-
+<div class="row">
+    <div class="col-lg-12 text-info">
+        <p>${requestScope.besked}</p>
+    </div>
+</div>
 <form name="shop" action="FrontController" method="POST">
 <div class="row">
 
