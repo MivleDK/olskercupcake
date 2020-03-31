@@ -41,8 +41,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <c:choose>
           <c:when test="${sessionScope.user.role == 'admin'}">
-            <form action="FrontController" method="post" style="width: 100%; margin-bottom: 0px">
+            <form action="FrontController" method="post" style="width: 100%; margin-bottom: 0px" class="form-inline">
               <input type="hidden" name="target" id="target" value="adminpage">
+
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <input type="submit" class="btn btn-link" value="Ordreoversigt" />
+                  </li>
+                  <li class="nav-item">
+                    <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud</button>
+                  </li>
+                </ul>
+
+              <!--
               <input type="submit" class="btn btn-link" value="Ordreoversigt" />
               |
               <input type="submit" value="kundekartotek" onclick="change(this.value)" class="btn btn-link" value="Kundekartotek" />
@@ -50,14 +64,32 @@
               <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud
               </button>
               |
-              <p id="loginInf" style="float:right; margin-top:5px;margin-bottom:5px;line-height: 1em;">Du er logget ind som ${sessionScope.email}</p>
-            </form>
+              -->
+              </form>
+              <p id="loginInf" style="float:right; margin-top:5px;margin-bottom:5px;line-height: 1em;">Du&nbsp;er&nbsp;logget&nbsp;ind&nbsp;som&nbsp;${sessionScope.email}</p>
           </c:when>
 
           <c:when test="${sessionScope.user.role == 'customer'}">
 
-            <form action="FrontController" method="post" style="width: 100%; margin-bottom: 0px">
+            <form action="FrontController" method="post" style="width: 100%; margin-bottom: 0px" class="form-inline">
               <input type="hidden" name="target" id="target" value="customerpage">
+
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <button type="submit" class="btn btn-link" value="customerpage">Shop</button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Indk&oslash;bskurv <span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" class="btn btn-link" value="tidligereordre" onclick="change(this.value)">Tidligere ordre</button>
+                  </li>
+                  <li class="nav-item">
+                    <button type="submit" class="btn btn-link" id="logUdKnap" value="logout" name="logout" onclick="change(this.value)">Log ud</button>
+                  </li>
+                </ul>
+
+              <!--
               <button type="submit" class="btn btn-link" value="customerpage">Shop</button>
               |
               <button type="submit" class="btn btn-link" value="kurv" onclick="change(this.value)">Indk&oslash;bskurv <span class="badge badge-pill badge-danger">${fn:length(sessionScope.basket)}</span></button>
@@ -69,8 +101,10 @@
                 ud
               </button>
               |
-              <p id="loginInf" style="float:right; margin-top:5px;margin-bottom:5px;line-height: 1em;">Du er logget ind som ${sessionScope.email}</p>
-            </form>
+              -->
+              </form>
+              <p id="loginInf" style="float:right; margin-top:5px;margin-bottom:5px;line-height: 1em;">Du&nbsp;er&nbsp;logget&nbsp;ind&nbsp;som&nbsp;${sessionScope.email}</p>
+
           </c:when>
           <c:otherwise>
             Mums filibaba!
