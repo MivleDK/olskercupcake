@@ -24,6 +24,7 @@ public class OrderCupcake extends Command {
      */
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException {
+
         HttpSession session = request.getSession();
 
         List<Basket> basket = (List<Basket>) session.getAttribute("basket");
